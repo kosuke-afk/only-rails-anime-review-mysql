@@ -1,0 +1,86 @@
+.title-content {
+  position: absolute;
+  top: 15rem;
+  left: 26rem;
+  & .title {
+    font-size: 6rem;
+  }
+  & .button-area {
+    margin-top: 3.5rem;
+    display: flex;
+    gap: 0 5rem;
+    & .base-button {
+      display: inline-block;
+      border-radius: 30px;
+      background-color: black;
+      color: rgb(219, 219, 115);
+      text-decoration: none;
+      font-size: 1.4rem;
+      height: 4rem;
+      width: 17rem;
+      padding-top: 1rem;
+      padding-left: 5.6rem;
+    }
+  }
+}
+
+#mask {
+  background-color: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  z-index: 1;
+}
+
+#modal {
+  position: fixed;
+  top: 5rem;
+  left: 31rem;
+  border-radius: 3rem;
+  background-color: white;
+  height: auto;
+  width: 28rem;
+  z-index: 2;
+  & .modal-content {
+    position: relative;
+    min-height: 38rem;
+    margin-top: 3rem;
+    & h1 {
+      font-size: 2rem;
+      margin-top: 2rem;
+      margin-left: 3rem;
+    }
+    & .close-button {
+      position: absolute;
+      top: -2rem;
+      left: 24rem;
+      font-size: 3rem;
+    }
+  }
+}
+
+.form-field {
+  width: 28rem;
+  display: flex;
+  flex-flow: column;
+  & .form-items {
+    display: flex;
+    gap: 0 2rem;
+    &:nth-child(2) {
+      gap: 6.8rem;
+    }
+    &:nth-child(4) {
+      gap: 3.87rem;
+    }
+    &:nth-child(5) {
+      gap: 1.87rem;
+    }
+  }
+  .input-item {
+    border: solid;
+    width: 18rem;
+    height: 2.4rem;
+  }
+}

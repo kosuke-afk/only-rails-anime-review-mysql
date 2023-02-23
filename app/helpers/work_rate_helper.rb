@@ -1,0 +1,2 @@
+module WorkRateHelper
+end

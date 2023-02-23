@@ -1,0 +1,46 @@
+@font-face {
+  font-family: "FontCool";
+  src: url("Foglihtenno04-aM2E.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+#global-container {
+  font-family: "FontCool";
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+header {
+  height: 5rem;
+  background-color: black;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  & .left-menu {
+    margin-left: 2rem;
+  }
+  & .right-menu {
+    display: flex;
+    width: 19rem;
+    justify-content: space-between;
+    margin-right: 5rem;
+  }
+  & a {
+    color: rgb(219, 219, 115);
+    text-decoration: none;
+  }
+}
+
+.logo {
+  font-family: "FontCool";
+}
+.container {
+  min-height: 50rem;
+  background-color: red;
+  position: relative;
+}
+
+footer {
+  height: 20rem;
+  background-color: black;
+}

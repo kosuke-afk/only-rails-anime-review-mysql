@@ -1,0 +1,37 @@
+<div class="title-content">
+    <h1 class="title">Anime Review</h1>
+    <div class="button-area">
+        <%= link_to "新規作成", "#", class: "base-button" %>
+        <%= link_to "ログイン", "#", class: "base-button" %>
+    </div>
+</div>
+<div id="mask">
+</div>
+<div id="modal">
+  <div class="modal-content">
+    <h1>ユーザー新規作成</h1>
+    <button class="close-button">✖️</button>
+    <div>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</div>
+    <div class="modal-main">
+      <%= form_with url: users_path, scope: :user, method: :post, class: "form-field" do |form| %>
+        <div class="form-items">
+          <%= form.label :name, "名前", class: "form-label"%>
+          <%= form.text_field :name, class: "input-item" %>
+        </div>
+        <div class="form-items">
+          <%= form.label :email, "メールアドレス", class: "form-label" %>
+          <%= form.email_field :email, class: "input-item" %>
+        </div>
+        <div class="form-items">
+          <%= form.label :password, "パスワード", class: "form-label" %>
+          <%= form.password_field :password, class: "input-item" %>
+        </div>
+        <div class="form-items">
+           <%= form.label :password_confirmation, "パスワード確認", class: "form-label" %>
+           <%= form.password_field :password_confirmation, class: "input-item" %>
+        </div>
+        <%= form.submit "新規作成", class: "form-button" %>
+      <% end %>
+    </div>
+  </div>
+</div>
