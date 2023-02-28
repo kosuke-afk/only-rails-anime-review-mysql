@@ -1,17 +1,16 @@
 <div class="title-content">
     <h1 class="title">Anime Review</h1>
     <div class="button-area">
-        <%= link_to "新規作成", "#", class: "base-button" %>
+        <%= link_to "新規作成", create_user_modal_users_path, class: "base-button", method: :get, remote: true %>
         <%= link_to "ログイン", "#", class: "base-button" %>
     </div>
 </div>
-<div id="mask">
+<div id="mask" class="hidden">
 </div>
-<div id="modal">
+<div id="modal" class="hidden">
   <div class="modal-content">
     <h1>ユーザー新規作成</h1>
     <button class="close-button">✖️</button>
-    <div>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</div>
     <div class="modal-main">
       <%= form_with url: users_path, scope: :user, method: :post, class: "form-field" do |form| %>
         <div class="form-items">
@@ -30,7 +29,10 @@
            <%= form.label :password_confirmation, "パスワード確認", class: "form-label" %>
            <%= form.password_field :password_confirmation, class: "input-item" %>
         </div>
-        <%= form.submit "新規作成", class: "form-button" %>
+        <div class="form-items">
+          <button class="form-button">キャンセル</button>
+          <%= form.submit "新規作成", class: "form-button" %>
+        </div>
       <% end %>
     </div>
   </div>
