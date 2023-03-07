@@ -1,0 +1,13 @@
+<%= turbo_frame_tag "modal-form" do %>
+    <%= form_with url: "#", scope: :user, method: :post, class: "login-field" do |form| %>
+        <div class="form-items">
+            <%= form.label :email, "メールアドレス", class: "form-label" %>
+            <%= form.email_field :email, class: "input-item" %>
+        </div>
+        <div class="form-items">
+            <%= form.label :password, "パスワード", class: "form-label" %>
+            <%= form.password_field :password, class: "input-item" %>
+        </div>
+        <%= form.submit "ログイン", class: "form-button" %>
+    <% end %>
+<% end %>

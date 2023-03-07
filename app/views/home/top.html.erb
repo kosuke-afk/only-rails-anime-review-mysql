@@ -1,39 +1,24 @@
+<% content_for(:js) do %>
+  <%= javascript_import_module_tag "home/top" %>
+<% end %>
 <div class="title-content">
     <h1 class="title">Anime Review</h1>
     <div class="button-area">
-        <%= link_to "新規作成", create_user_modal_users_path, class: "base-button", method: :get, remote: true %>
-        <%= link_to "ログイン", "#", class: "base-button" %>
+      <%= link_to "新規作成", create_user_modal_path, data: {turbo_method: :post, turbo_frame: "modal-form"}, class: "base-button" %>
+      <%= link_to "ログイン",  login_modal_path, data: {turbo_method: :post, turbo_frame: "modal-form"}, class: "base-button" %>
     </div>
 </div>
-<div id="mask" class="hidden">
-</div>
+  <div id="mask" class="hidden">
+    <%= link_to "", create_user_modal_path, data: {turbo_method: :post, turbo_frame: "modal-form"}, class: "mask-link" %>
+  </div>
 <div id="modal" class="hidden">
   <div class="modal-content">
     <h1>ユーザー新規作成</h1>
-    <button class="close-button">✖️</button>
+    <%= link_to "✖️",create_user_modal_path, data: {turbo_method: :post, turbo_frame: "modal-form"},class: "close-button" %>
     <div class="modal-main">
-      <%= form_with url: users_path, scope: :user, method: :post, class: "form-field" do |form| %>
-        <div class="form-items">
-          <%= form.label :name, "名前", class: "form-label"%>
-          <%= form.text_field :name, class: "input-item" %>
-        </div>
-        <div class="form-items">
-          <%= form.label :email, "メールアドレス", class: "form-label" %>
-          <%= form.email_field :email, class: "input-item" %>
-        </div>
-        <div class="form-items">
-          <%= form.label :password, "パスワード", class: "form-label" %>
-          <%= form.password_field :password, class: "input-item" %>
-        </div>
-        <div class="form-items">
-           <%= form.label :password_confirmation, "パスワード確認", class: "form-label" %>
-           <%= form.password_field :password_confirmation, class: "input-item" %>
-        </div>
-        <div class="form-items">
-          <button class="form-button">キャンセル</button>
-          <%= form.submit "新規作成", class: "form-button" %>
-        </div>
+      <%= turbo_frame_tag "modal-form" do %>
       <% end %>
     </div>
   </div>
 </div>
+

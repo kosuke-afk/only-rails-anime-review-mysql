@@ -5,7 +5,4 @@ class SessionController < ApplicationController
   def logout
   end
 
-  def login_modal
-    byebug
-  end
 end
