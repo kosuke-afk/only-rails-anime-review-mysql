@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   root 'home#top'
   post 'create_user_modal', to: "home#create_user_modal"
   post 'login_modal', to: "home#login_modal"
-  
+  resources :users
   get 'episode_rate/edit'
   get 'works/show'
   get 'works/index'

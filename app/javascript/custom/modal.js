@@ -4,25 +4,35 @@ export default class Modal {
     this.buttons = document.querySelectorAll(openButton);
     this.closeButton = document.querySelector(closeButton);
     this.mask = document.getElementById(mask) || null;
-    this.addOpenEvent(this.buttons);
-    this.addCloseEvent(this.closeButton);
+    this._addOpenEvent(this.buttons);
+    this._addCloseEvent(this.closeButton);
     if (this.mask != null) {
-      this.addCloseEvent(this.mask);
+      this._addCloseEvent(this.mask);
     }
   }
 
-  addOpenEvent(doms) {
-    doms.forEach((dom) => {
+  _addOpenEvent(doms) {
+    if (doms.length >= 2) {
+      doms.forEach((dom) => {
+        dom.addEventListener("click", () => {
+          this.modal.classList.remove("hidden");
+          if (this.mask != null) {
+            this.mask.classList.remove("hidden");
+          }
+        });
+      });
+    } else {
+      const dom = doms;
       dom.addEventListener("click", () => {
         this.modal.classList.remove("hidden");
         if (this.mask != null) {
           this.mask.classList.remove("hidden");
         }
       });
-    });
+    }
   }
 
-  addCloseEvent(dom) {
+  _addCloseEvent(dom) {
     dom.addEventListener("click", () => {
       if (this.mask != null) {
         this.mask.classList.add("hidden");

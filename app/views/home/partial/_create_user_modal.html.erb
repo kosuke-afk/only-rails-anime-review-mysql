@@ -1,5 +1,8 @@
 <%= turbo_frame_tag "modal-form" do %>
-    <%= form_with url: "#", scope: :user, method: :post, id: "form",class: "create-field" do |form| %>
+    <% if flash[:danger].present? %>
+    	<%= render partial: "home/partial/error_messages"%>
+		<% end %>
+    <%= form_with model: user, method: :post, id: "form",class: "create-field" do |form| %>
 				<div class="form-items">
 					<%= form.label :name, "名前", class: "form-label"%>
 					<%= form.text_field :name, class: "input-item" %>
