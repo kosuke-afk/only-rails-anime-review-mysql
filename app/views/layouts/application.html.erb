@@ -8,13 +8,18 @@
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
 
-    <%= javascript_importmap_tags %>
-    <%= yield(:js) %>
+    <%= javascript_importmap_tags%>
+   
   </head>
 
   <body>
     <div id="global-container">
       <%= render "shared/header"%>
+      <% if flash.present? %>
+        <% flash.each do |key, value| %>
+          <%= render partial: "shared/flash_message", locals: {type: key, message: value} %>
+        <% end %>
+      <% end %>
       <div class="container">
         <%= yield %>
       </div>

@@ -6,8 +6,10 @@ class UsersController < ApplicationController
   def create
     @user = User.new(params_user)
     if @user.save
+      log_in @user
+      session[:modal_close] = false
       flash[:success] = "新規作成に成功しました。"
-      redirect_to works_index_path
+      redirect_to root_path
     else
       flash.now[:danger] = @user.errors.full_messages
       @user = User.new

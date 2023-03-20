@@ -5,9 +5,13 @@
   font-style: normal;
 }
 #global-container {
-  font-family: "FontCool";
   min-height: 100vh;
+  position: relative;
   box-sizing: border-box;
+}
+
+.font-cool {
+  font-family: "FontCool";
 }
 
 header {
@@ -21,6 +25,7 @@ header {
   }
   & .right-menu {
     display: flex;
+    min-width: 12rem;
     width: 19rem;
     justify-content: space-between;
     margin-right: 5rem;
@@ -34,6 +39,28 @@ header {
 .logo {
   font-family: "FontCool";
 }
+
+.flash {
+  position: absolute;
+  width: 15rem;
+  height: 3.5rem;
+  left: 37rem;
+  top: 7rem;
+  // z-index: 100;
+  & > p {
+    margin-top: 1rem;
+    margin-left: 1rem;
+  }
+  &.success {
+    background-color: green;
+    color: white;
+  }
+  &.danger {
+    background-color: black;
+    color: red;
+  }
+}
+
 .container {
   min-height: 50rem;
   background-color: red;

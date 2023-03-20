@@ -1,10 +1,19 @@
-<header>
+<header id="header">
   <div class="left-menu">
-     <%= link_to "Anime Review", "#",class: "logo" %>
+     <%= link_to "Anime Review", "#",class: "logo font-cool" %>
   </div>
   <div class="right-menu">
-    <%= link_to "ログイン", "#"%>
-    <%= link_to "ユーザー情報", "#"%>
-    <%= link_to "マイページ", "#"%>
+    <% if logged_in? %>
+      <%= link_to "ホーム", root_path %>
+      <%= link_to "ユーザー情報", "#"%>
+      <%= link_to "マイページ", "#"%>
+      <%= link_to "作品詳細", works_show_path%>
+
+      <%= link_to "ログアウト", session_logout_path, data: {turbo_method: :delete }  %>
+    <% else %>
+      <%= link_to "ログイン", session_login_path,data: { turbo_method: :post } %>
+      <%= link_to "ホーム", root_path, data: {turbo: false}%>
+      <%= link_to "作品一覧", works_index_path %>
+    <% end %>
   </div>
 </header>

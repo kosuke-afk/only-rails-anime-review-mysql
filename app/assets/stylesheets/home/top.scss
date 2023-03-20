@@ -59,7 +59,7 @@
   z-index: 2;
   & .modal-content {
     position: relative;
-    min-height: 26rem;
+    min-height: 23rem;
     margin-top: 2rem;
     & h1 {
       font-size: 1.6rem;
@@ -73,8 +73,18 @@
       left: 24rem;
       font-size: 3rem;
     }
+    & .error-area {
+      min-height: 1rem;
+      list-style: none;
+      margin-left: 3rem;
+      margin-top: 2rem;
+      color: red;
+      display: flex;
+      flex-flow: column;
+      gap: 0.5rem;
+    }
     & .login-field {
-      margin-top: 4rem;
+      margin-top: 2rem;
       margin-left: 1rem;
       width: 28rem;
       display: flex;
