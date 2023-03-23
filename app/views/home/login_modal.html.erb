@@ -6,7 +6,7 @@
     <div class="modal-content">     
       <h1>ログイン</h1>
       <%= link_to "✖️",root_path, data: {turbo_frame: "top-modal"},class: "close-button" %>
-      <div class="modal-main">
+      <div id="modal-main">
         <% if flash[:danger].present? %>
             <%= render partial: "home/partial/error_messages"%>
         <% end %>

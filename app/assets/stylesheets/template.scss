@@ -23,12 +23,12 @@ header {
   & .left-menu {
     margin-left: 2rem;
   }
-  & .right-menu {
+  & #right-menu {
     display: flex;
-    min-width: 12rem;
-    width: 19rem;
+    width: fit-content;
     justify-content: space-between;
-    margin-right: 5rem;
+    gap: 0 2rem;
+    margin-right: 7rem;
   }
   & a {
     color: rgb(219, 219, 115);
@@ -61,7 +61,7 @@ header {
   }
 }
 
-.container {
+#container {
   min-height: 50rem;
   background-color: red;
   position: relative;

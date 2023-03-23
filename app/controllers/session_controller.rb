@@ -5,9 +5,11 @@ class SessionController < ApplicationController
       log_in @user
       session[:modal_close] = false
       flash[:success] = "ログインしました。"
-      redirect_to root_path
     else
       flash.now[:danger] = ["メールアドレスまたはパスワードが違います"]
+      render turbo_stream: [
+        turbo_stream.prepend("modal-main", partial: "home/partial/error_messages" )
+      ]
     end
   end
 

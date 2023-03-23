@@ -14,15 +14,12 @@
 
   <body>
     <div id="global-container">
-      <%= render "shared/header"%>
-      <% if flash.present? %>
-        <% flash.each do |key, value| %>
-          <%= render partial: "shared/flash_message", locals: {type: key, message: value} %>
-        <% end %>
-      <% end %>
-      <div class="container">
-        <%= yield %>
-      </div>
+        <%= render "shared/header" %>
+        <div id="flash">
+        </div>
+        <div id="container">
+          <%= yield %>
+        </div>
       <%= render "shared/footer" %>
     </div>
   </body>

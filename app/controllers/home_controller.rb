@@ -3,6 +3,7 @@ class HomeController < ApplicationController
   end
 
   def create_user_modal
+    @user = User.new
   end
 
   def login_modal

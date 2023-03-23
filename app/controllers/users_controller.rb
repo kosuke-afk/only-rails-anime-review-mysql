@@ -7,12 +7,12 @@ class UsersController < ApplicationController
     @user = User.new(params_user)
     if @user.save
       log_in @user
-      session[:modal_close] = false
-      flash[:success] = "新規作成に成功しました。"
-      redirect_to root_path
+      flash.now[:success] = "新規作成に成功しました。"
     else
       flash.now[:danger] = @user.errors.full_messages
-      @user = User.new
+      render turbo_stream: [
+        turbo_stream.prepend("modal-main",partial: "home/partial/error_messages")
+      ]
     end
   end
 

@@ -1,9 +1,11 @@
 <div class="title-content">
     <h1 class="title font-cool">Anime Review</h1>
-    <div class="button-area">
-      <%= link_to "新規作成", create_user_modal_path,data: { turbo_frame: "top-modal"}, class: "base-button" %>
-      <%= link_to "ログイン",  login_modal_path, data: { turbo_frame: "top-modal" },class: "base-button"  %>
-    </div>
+      <% if !logged_in? %>
+        <div id="button-area">
+          <%= link_to "新規作成", create_user_modal_path,data: { turbo_frame: "top-modal"}, class: "base-button" %>
+          <%= link_to "ログイン",  login_modal_path, data: { turbo_frame: "top-modal" },class: "base-button"  %>
+        </div>
+      <% end %>
 </div>
 <%= turbo_frame_tag "top-modal" do %>
 <% end %>

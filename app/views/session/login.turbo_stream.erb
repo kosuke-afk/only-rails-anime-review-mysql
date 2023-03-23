@@ -1,2 +1,4 @@
-
-  <%= turbo_stream.replace"modal-form",partial: "home/partial/login_modal" %>
+<%= turbo_stream.update"right-menu",partial: "shared/header_login" %>
+<%= turbo_stream.remove("button-area") %>
+<%= turbo_stream.remove("top-modal") %>
+<%= turbo_stream.replace("flash", partial: "shared/flash_message") %>
