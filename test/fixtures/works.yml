@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  release: MyString
+  episode-count: 1
+  media: MyString
+  image: MyString
+
+two:
+  title: MyString
+  release: MyString
+  episode-count: 1
+  media: MyString
+  image: MyString
