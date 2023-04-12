@@ -4,8 +4,7 @@ Rails.application.routes.draw do
   get 'login_modal', to: "home#login_modal"
   resources :users
   post 'session/login'
-  post 'session/example'
-  delete 'session/logout'
+  get 'session/logout'
   get 'episode_rate/edit'
   get 'works/show'
   get 'works/index'

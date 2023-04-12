@@ -1,8 +1,7 @@
-<% if flash.present? %>
-  <% flash.each do |type,message| %>
-    <div class="flash <%= type %>">
+<% flash.each do |type,message| %>
+    <div id="flash" class="<%= type %>">
       <p><%= message %></p>
     </div>
-  <% end %>
+    <%= javascript_import_module_tag "fadeout" %>
 <% end %>
-  
+

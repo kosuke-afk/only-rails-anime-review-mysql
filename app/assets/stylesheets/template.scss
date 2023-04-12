@@ -40,13 +40,17 @@ header {
   font-family: "FontCool";
 }
 
-.flash {
+#flash {
   position: absolute;
   width: 15rem;
   height: 3.5rem;
   left: 37rem;
   top: 7rem;
-  // z-index: 100;
+  z-index: 100;
+  &.fade-out {
+    animation: fadeOut 1.5s ease;
+    opacity: 0;
+  }
   & > p {
     margin-top: 1rem;
     margin-left: 1rem;
@@ -70,4 +74,13 @@ header {
 footer {
   height: 20rem;
   background-color: black;
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
 }

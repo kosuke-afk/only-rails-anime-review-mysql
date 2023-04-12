@@ -14,12 +14,18 @@
 
   <body>
     <div id="global-container">
+      <%= turbo_frame_tag "page-transition" do %>
         <%= render "shared/header" %>
-        <div id="flash">
-        </div>
+        <% if flash.present? %>
+          <%= render "shared/flash_message" %>
+        <% else %>
+          <div id="flash">
+          </div>
+        <% end %>
         <div id="container">
           <%= yield %>
         </div>
+      <% end %>
       <%= render "shared/footer" %>
     </div>
   </body>
