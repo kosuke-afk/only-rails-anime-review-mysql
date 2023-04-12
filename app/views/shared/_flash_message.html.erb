@@ -1,7 +1,6 @@
 <% flash.each do |type,message| %>
-    <div id="flash" class="<%= type %>">
+    <div id="flash" class="<%= type %>" data-controller="fadeout">
       <p><%= message %></p>
     </div>
-    <%= javascript_import_module_tag "fadeout" %>
 <% end %>
 
