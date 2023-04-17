@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_04_12_055744) do
+ActiveRecord::Schema[7.0].define(version: 2023_04_15_093053) do
   create_table "users", charset: "utf8mb4", force: :cascade do |t|
     t.string "name"
     t.string "email"
@@ -22,13 +22,13 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_12_055744) do
 
   create_table "works", charset: "utf8mb4", force: :cascade do |t|
     t.string "title"
-    t.string "release"
     t.integer "episode_count"
     t.string "media"
     t.string "image"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["release"], name: "index_works_on_release", unique: true
+    t.integer "year"
+    t.string "season"
     t.index ["title"], name: "index_works_on_title", unique: true
   end
 

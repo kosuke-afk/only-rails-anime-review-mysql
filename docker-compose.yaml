@@ -17,6 +17,8 @@ services:
       - .:/myapp
     ports:
       - "3000:3000"
+    environment:
+      - ANNICT_ACCESS_TOKEN=${ANNICT_ACCESS_TOKEN}
     tty: true
     stdin_open: true
     depends_on:
