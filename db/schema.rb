@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_07_171029) do
+ActiveRecord::Schema[7.0].define(version: 2023_04_18_045900) do
   create_table "users", charset: "utf8mb4", force: :cascade do |t|
     t.string "name"
     t.string "email"
@@ -18,6 +18,19 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_07_171029) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_users_on_email"
+  end
+
+  create_table "works", charset: "utf8mb4", force: :cascade do |t|
+    t.string "title"
+    t.integer "episode_count"
+    t.string "media"
+    t.string "image"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "year"
+    t.string "season"
+    t.string "title_kana"
+    t.index ["title"], name: "index_works_on_title", unique: true
   end
 
 end
