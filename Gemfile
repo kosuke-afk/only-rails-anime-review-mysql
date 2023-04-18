@@ -28,6 +28,7 @@ gem "stimulus-rails"
 gem "jbuilder"
 gem "faraday"
 gem "dotenv"
+gem "faker"
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
 

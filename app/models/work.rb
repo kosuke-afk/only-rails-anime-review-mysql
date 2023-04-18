@@ -4,6 +4,7 @@ class Work < ApplicationRecord
     Work.find_or_initialize_by(title: work["title"]).update(
       year: year,
       season: season,
+      title_kana: work["title_kana"],
       image: work["images"]["recommended_url"] || "",
       episode_count: work["episodes_count"],
       media: work["media_text"]
