@@ -1,0 +1,21 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  impressed: 1
+  comedy: 1
+  love: 1
+  excitement: 1
+  deep: 1
+  favorite_degree: 1
+  work_rateable: one
+  work_rateable_type: Work rateable
+
+two:
+  impressed: 1
+  comedy: 1
+  love: 1
+  excitement: 1
+  deep: 1
+  favorite_degree: 1
+  work_rateable: two
+  work_rateable_type: Work rateable

@@ -1,4 +1,9 @@
 class User < ApplicationRecord
+
+  has_many :work_rates
+  has_many :episode_rates
+  has_many :works, through: :work_rates
+
   has_secure_password
   before_save { self.email = email.downcase }
 

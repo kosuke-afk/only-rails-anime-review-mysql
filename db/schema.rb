@@ -10,7 +10,31 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_04_18_045900) do
+ActiveRecord::Schema[7.0].define(version: 2023_04_19_050947) do
+  create_table "episode_rates", charset: "utf8mb4", force: :cascade do |t|
+    t.integer "impressed"
+    t.integer "comedy"
+    t.integer "love"
+    t.integer "excitement"
+    t.integer "deep"
+    t.integer "favorite_degree"
+    t.bigint "episode_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["episode_id"], name: "index_episode_rates_on_episode_id"
+    t.index ["user_id"], name: "index_episode_rates_on_user_id"
+  end
+
+  create_table "episodes", charset: "utf8mb4", force: :cascade do |t|
+    t.string "title"
+    t.integer "episode_number"
+    t.bigint "work_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["work_id"], name: "index_episodes_on_work_id"
+  end
+
   create_table "users", charset: "utf8mb4", force: :cascade do |t|
     t.string "name"
     t.string "email"
@@ -18,6 +42,21 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_18_045900) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_users_on_email"
+  end
+
+  create_table "work_rates", charset: "utf8mb4", force: :cascade do |t|
+    t.integer "impressed"
+    t.integer "comedy"
+    t.integer "love"
+    t.integer "excitement"
+    t.integer "deep"
+    t.integer "favorite_degree"
+    t.bigint "user_id", null: false
+    t.bigint "work_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_work_rates_on_user_id"
+    t.index ["work_id"], name: "index_work_rates_on_work_id"
   end
 
   create_table "works", charset: "utf8mb4", force: :cascade do |t|
@@ -33,4 +72,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_18_045900) do
     t.index ["title"], name: "index_works_on_title", unique: true
   end
 
+  add_foreign_key "episode_rates", "episodes"
+  add_foreign_key "episode_rates", "users"
+  add_foreign_key "episodes", "works"
+  add_foreign_key "work_rates", "users"
+  add_foreign_key "work_rates", "works"
 end

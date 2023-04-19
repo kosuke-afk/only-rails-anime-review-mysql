@@ -1,5 +1,7 @@
 class Work < ApplicationRecord
-
+  has_many :episodes
+  has_many :work_rates
+  has_many :users, through: :work_rates
   def self.create_or_update(work:,year:,season:)
     Work.find_or_initialize_by(title: work["title"]).update(
       year: year,
