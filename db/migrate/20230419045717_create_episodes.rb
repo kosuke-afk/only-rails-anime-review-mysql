@@ -3,9 +3,10 @@ class CreateEpisodes < ActiveRecord::Migration[7.0]
     create_table :episodes do |t|
       t.string :title
       t.integer :episode_number
-      t.references :work, null: false, foreign_key: true
+      t.references :work, type: :integer, null: false
 
       t.timestamps
     end
+    add_foreign_key :episodes, :works, column: :work_id, primary_key: :annict_id
   end
 end
