@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  work: one
+  character: MyString
+  cast: MyString
+
+two:
+  work: two
+  character: MyString
+  cast: MyString

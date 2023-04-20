@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_04_19_050947) do
+ActiveRecord::Schema[7.0].define(version: 2023_04_20_030924) do
+  create_table "casts", charset: "utf8mb4", force: :cascade do |t|
+    t.integer "work_id", null: false
+    t.string "character"
+    t.string "cast"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["work_id"], name: "index_casts_on_work_id"
+  end
+
   create_table "episode_rates", charset: "utf8mb4", force: :cascade do |t|
     t.integer "impressed"
     t.integer "comedy"
@@ -29,7 +38,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_19_050947) do
   create_table "episodes", charset: "utf8mb4", force: :cascade do |t|
     t.string "title"
     t.integer "episode_number"
-    t.bigint "work_id", null: false
+    t.integer "work_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["work_id"], name: "index_episodes_on_work_id"
@@ -52,15 +61,16 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_19_050947) do
     t.integer "deep"
     t.integer "favorite_degree"
     t.bigint "user_id", null: false
-    t.bigint "work_id", null: false
+    t.integer "work_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_work_rates_on_user_id"
     t.index ["work_id"], name: "index_work_rates_on_work_id"
   end
 
-  create_table "works", charset: "utf8mb4", force: :cascade do |t|
+  create_table "works", primary_key: "annict_id", id: :integer, charset: "utf8mb4", force: :cascade do |t|
     t.string "title"
+    t.string "release"
     t.integer "episode_count"
     t.string "media"
     t.string "image"
@@ -69,12 +79,14 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_19_050947) do
     t.integer "year"
     t.string "season"
     t.string "title_kana"
+    t.index ["release"], name: "index_works_on_release", unique: true
     t.index ["title"], name: "index_works_on_title", unique: true
   end
 
+  add_foreign_key "casts", "works", primary_key: "annict_id"
   add_foreign_key "episode_rates", "episodes"
   add_foreign_key "episode_rates", "users"
-  add_foreign_key "episodes", "works"
+  add_foreign_key "episodes", "works", primary_key: "annict_id"
   add_foreign_key "work_rates", "users"
-  add_foreign_key "work_rates", "works"
+  add_foreign_key "work_rates", "works", primary_key: "annict_id"
 end
