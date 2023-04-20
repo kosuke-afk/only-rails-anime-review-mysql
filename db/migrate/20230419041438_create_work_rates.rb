@@ -7,9 +7,11 @@ class CreateWorkRates < ActiveRecord::Migration[7.0]
       t.integer :excitement
       t.integer :deep
       t.integer :favorite_degree
-      t.references :user, null: false,foreign_key: true
-      t.references :work, null: false,foreign_key: true
+      t.references :user, null: false, foreign_key: true
+      t.references :work, type: :integer, null: false
+
       t.timestamps
     end
+    add_foreign_key :work_rates, :works, column: :work_id , primary_key: :annict_id
   end
 end
