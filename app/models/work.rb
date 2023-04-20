@@ -1,4 +1,5 @@
 class Work < ApplicationRecord
+  self.primary_key = :annict_id
   has_many :episodes
   has_many :work_rates
   has_many :users, through: :work_rates
