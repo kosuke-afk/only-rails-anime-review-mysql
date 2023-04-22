@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
 
+  
   def edit
   end
 
@@ -7,11 +8,12 @@ class UsersController < ApplicationController
     @user = User.new(params_user)
     if @user.save
       log_in @user
-      flash.now[:success] = "新規作成に成功しました。"
+      flash[:success] = "新規作成に成功しました。"
+      redirect_to works_index_path
     else
       flash.now[:danger] = @user.errors.full_messages
       render turbo_stream: [
-        turbo_stream.prepend("modal-main",partial: "home/partial/error_messages")
+        turbo_stream.replace("error-area",partial: "home/partial/error_messages")
       ]
     end
   end
