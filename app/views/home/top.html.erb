@@ -8,4 +8,8 @@
       <% end %>
 </div>
 <%= turbo_frame_tag "top-modal" %>
+<% content_for :css do %>
+  <%= stylesheet_link_tag "home/top" %>
+<% end %>
+
 

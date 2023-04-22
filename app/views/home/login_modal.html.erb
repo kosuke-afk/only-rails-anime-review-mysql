@@ -7,9 +7,8 @@
       <h1>ログイン</h1>
       <%= link_to "✖️",root_path, data: {turbo_frame: "top-modal"},class: "close-button" %>
       <div id="modal-main">
-        <% if flash[:danger].present? %>
-            <%= render partial: "home/partial/error_messages"%>
-        <% end %>
+        <ul id="error-area">
+        </ul>
         <%= form_with url: session_login_path, scope: :user, class: "login-field" do |form| %>
             <div class="form-items">
                 <%= form.label :email, "メールアドレス", class: "form-label" %>
