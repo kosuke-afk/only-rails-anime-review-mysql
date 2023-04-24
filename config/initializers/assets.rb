@@ -3,9 +3,14 @@
 # Version of your assets, change this if you want to expire all your assets.
 Rails.application.config.assets.version = "1.0"
 
-Rails.application.config.assets.precompile += %w(
-    home/*
- )
+# Rails.application.config.assets.precompile += %w(
+#     home/*
+#  )
+# Rails.application.config.dartsass.build_options << " --quiet-deps"
+Rails.application.config.dartsass.builds = {
+  "application.scss"  => "application.css",
+  "home/top.scss"       => "home/top.css"
+}
 # Add additional assets to the asset load path.
 # Rails.application.config.assets.paths << Emoji.images_path
 

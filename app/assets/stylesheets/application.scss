@@ -13,5 +13,5 @@
  
  */
 
-@import "global/reset";
-@import "global/template";
+@use "application/reset";
+@use "application/template";
