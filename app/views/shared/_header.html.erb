@@ -4,9 +4,13 @@
   </div>
   <div id="right-menu">
     <% if logged_in? %>
-      <%= render "shared/header_login" %>
+      <button class="humberger" data-controller="mobile-menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
     <% else %>
-      <%= render "shared/header_logout" %>
+      <%= link_to "ログイン", "#" %>
     <% end %>
   </div>
 </header>

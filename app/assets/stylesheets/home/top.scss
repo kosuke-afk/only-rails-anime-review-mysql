@@ -1,9 +1,19 @@
+@use "../global/mq" as *;
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
 .title-content {
-  position: absolute;
-  top: 15rem;
-  left: 26rem;
   & .title {
-    font-size: 6rem;
+    font-size: 4rem;
+    @include mq(lg) {
+      font-size: 6rem;
+    }
+    @include mq(xl) {
+      font-size: 7rem;
+    }
   }
   & #button-area {
     margin-top: 3.5rem;
