@@ -3,9 +3,13 @@
     <%= link_to "", root_path, data: {turbo_frame: "top-modal"}, class: "mask-link" %>
   </div>
   <div id="modal">
-    <div class="modal-content">     
-      <h1>ログイン</h1>
-      <%= link_to "✖️",root_path, data: {turbo_frame: "top-modal"},class: "close-button" %>
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1>ログイン</h1>
+        <div class="modal-close">
+          <%= link_to "✖️",root_path, data: {turbo_frame: "top-modal"},class: "close-button" %>
+        </div>
+      </div>    
       <div id="modal-main">
         <ul id="error-area">
         </ul>
