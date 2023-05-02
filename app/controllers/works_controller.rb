@@ -3,5 +3,6 @@ class WorksController < ApplicationController
   end
 
   def index
+    @works = Work.limit(10);
   end
 end

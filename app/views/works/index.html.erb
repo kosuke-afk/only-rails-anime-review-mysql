@@ -1,2 +1,8 @@
-<h1>Works#index</h1>
-<p>Find me in app/views/works/index.html.erb</p>
+<div class="works-area">
+  <% @works.each do |work| %>
+    <%= render partial: "works/shared/work", locals: {work: work} %>
+  <% end %>
+</div>
+<% content_for :css do %>
+  <%= stylesheet_link_tag "works/index" %>
+<% end %>
