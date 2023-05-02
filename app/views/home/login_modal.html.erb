@@ -13,7 +13,7 @@
       <div id="modal-main">
         <ul id="error-area">
         </ul>
-        <%= form_with url: session_login_path, scope: :user, class: "login-field" do |form| %>
+        <%= form_with url: session_login_path, scope: :user, data: { turbo_method: :post,controller: "form-redirect",action: "turbo:submit-end->form-redirect#next"},class: "login-field" do |form| %>
             <div class="form-items">
                 <%= form.label :email, "メールアドレス", class: "form-label" %>
                 <%= form.email_field :email, class: "input-item" %>

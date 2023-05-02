@@ -10,7 +10,7 @@ class SessionController < ApplicationController
       flash.now[:danger] = ["メールアドレスまたはパスワードが違います"]
       render turbo_stream: [
         turbo_stream.replace("error-area", partial: "home/partial/error_messages" )
-      ]
+      ],status: :unprocessable_entity
     end
   end
 
