@@ -1,5 +1,6 @@
 @use "../global/mq" as *;
 @use "../global/animation" as *;
+@use "../global/color" as *;
 @font-face {
   font-family: "FontCool";
   src: url("Foglihtenno04-aM2E.ttf") format("truetype");
@@ -56,7 +57,7 @@ header {
     }
   }
   & a {
-    color: rgb(219, 219, 115);
+    color: $gold;
     text-decoration: none;
   }
 }
@@ -152,7 +153,7 @@ footer {
     overflow: hidden;
     border-radius: 0 0 6px 6px;
     background-color: black;
-    color: rgb(219, 219, 115);
+    color: $gold;
     transition: all 1.5s ease;
     transform-origin: right;
     font-size: 2rem;
@@ -215,7 +216,7 @@ footer {
     transition: color 2.5s ease;
     z-index: 2;
     &:hover {
-      color: rgb(219, 219, 115);
+      color: $gold;
     }
   }
 }

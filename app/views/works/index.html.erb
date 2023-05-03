@@ -1,7 +1,5 @@
 <div class="works-area">
-  <% @works.each do |work| %>
-    <%= render partial: "works/shared/work", locals: {work: work} %>
-  <% end %>
+  <%= render partial: "works/shared/work", collection: @works %>
 </div>
 <% content_for :css do %>
   <%= stylesheet_link_tag "works/index" %>
