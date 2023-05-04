@@ -14,6 +14,10 @@ class Work < ApplicationRecord
     )
   end
 
+  def self.ransackable_attributes(auth_object = nil)
+    ["annict_id", "created_at", "episode_count", "image", "media", "title", "title_kana", "updated_at"]
+  end
+  
   def self.register_annict_data start_year=2005, end_year=Date.today.year
     seasons = ["spring","summer","autumn","winter"]
     (start_year..end_year).each do |year|

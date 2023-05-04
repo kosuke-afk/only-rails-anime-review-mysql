@@ -16,4 +16,4 @@
                password_confirmation: password)
 end
 
-Work.register_annict_data(2022,2023)
+# Work.register_annict_data(2022,2023)
