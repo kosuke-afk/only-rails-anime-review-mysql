@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_05_04_022505) do
+ActiveRecord::Schema[7.0].define(version: 2023_05_04_131117) do
   create_table "casts", charset: "utf8mb4", force: :cascade do |t|
     t.integer "work_id", null: false
     t.string "character"
@@ -49,8 +49,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_04_022505) do
     t.string "season"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["season"], name: "index_releases_on_season", unique: true
-    t.index ["year"], name: "index_releases_on_year", unique: true
   end
 
   create_table "users", charset: "utf8mb4", force: :cascade do |t|
