@@ -1,5 +1,5 @@
 class Work < ApplicationRecord
-  self.primary_key = :annict_id
+  # self.primary_key = :annict_id
   belongs_to :release
   has_many :episodes
   has_many :work_rates
@@ -8,13 +8,25 @@ class Work < ApplicationRecord
   
 
   def self.create_or_update(work:,release_id:)
-    Work.find_or_initialize_by(title: work["title"]).update(
-      title_kana: work["title_kana"],
-      image: work["images"]["recommended_url"] || "",
-      episode_count: work["episodes_count"],
-      media: work["media_text"],
-      release_id: release_id
-    )
+     Work.find_or_initialize_by(title: work["title"]).update(
+        title_kana: work["title_kana"],
+        image: work["images"]["recommended_url"] || "",
+        episode_count: work["episodes_count"],
+        media: work["media_text"],
+        release_id: release_id,
+        annict_id: work["id"]
+      )
+     @work = Work.find_by(title: work["title"])
+  end
+
+  def check_duplication?
+    @work = Work.where(
+      title_kana: self.title_kana)
+    if @work.count === 1
+      false
+    elsif @work.count >= 2
+      true
+    end
   end
 
   def self.ransackable_attributes(auth_object = nil)
@@ -35,11 +47,11 @@ class Work < ApplicationRecord
                 when "冬" 
                   season = "winter"
                 end
-      works = Annict::Work.get_total_works(year: year,season: season)
+      works = Annict::Work.fetch_all_works(year: year,season: season)
       total_page = (works["total_count"] / 50.to_f).ceil
       current_page = 1
       while (current_page <= total_page)
-        works = Annict::Work.fetch_works_data(year: year,season: season,page: current_page)
+        works = Annict::Work.fetch_works(year: year,season: season,page: current_page)
         works.each do |work|
           self.create_or_update(work: work, release_id: release.id)
         end
