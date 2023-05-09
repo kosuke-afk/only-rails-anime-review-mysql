@@ -75,15 +75,17 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_04_131117) do
     t.index ["work_id"], name: "index_work_rates_on_work_id"
   end
 
-  create_table "works", primary_key: "annict_id", id: :integer, charset: "utf8mb4", force: :cascade do |t|
+  create_table "works", charset: "utf8mb4", force: :cascade do |t|
     t.string "title"
     t.integer "episode_count"
     t.string "media"
     t.string "image"
+    t.integer "annict_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "title_kana"
     t.bigint "release_id", null: false
+    t.index ["annict_id"], name: "index_works_on_annict_id", unique: true
     t.index ["release_id"], name: "index_works_on_release_id"
     t.index ["title"], name: "index_works_on_title", unique: true
   end

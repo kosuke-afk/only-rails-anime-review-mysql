@@ -4,5 +4,6 @@ class RemoveReleaseFromWork < ActiveRecord::Migration[7.0]
     end
     def down
       add_column :works, :release, :string
+      add_index :works, :release, unique: true
     end
 end
