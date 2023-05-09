@@ -10,4 +10,12 @@ class Release < ApplicationRecord
     end
   end
 
+  def check_duplication?
+    release = Release.where(year: self.year, season: self.season)
+    if release.count === 1
+      false
+    elsif release.count >= 2
+      true
+    end
+  end
 end
