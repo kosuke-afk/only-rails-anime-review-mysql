@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   get 'episode_rate/edit'
   get 'works/show'
   get 'works/index'
+  get 'works/search'
   get 'users/edit'
   
   get 'home/top'

@@ -1,6 +1,10 @@
 class Release < ApplicationRecord
   has_many :works
 
+  def self.ransackable_attributes(auth_object = nil)
+    ["year","season"]
+  end
+
   def self.register(sYear,eYear)
     releases = []
     (sYear..eYear).each do |year|
