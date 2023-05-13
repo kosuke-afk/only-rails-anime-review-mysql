@@ -17,3 +17,5 @@
 end
 releases = Release.register(2022,2023)
 Work.register_annict_data(releases)
+Cast.all_register
+Episode.all_register
