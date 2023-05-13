@@ -52,14 +52,26 @@ RSpec.describe Annict do
   end
 
   describe "Episodeクラス" do
-    describe "fech_episodesメソッド" do
+    describe "fetch_episodesメソッド" do
       it "指定した作品のエピソードが取得できていること" do
         release = Release.create(year: 2022, season: "夏")
-        annict_data = Annict::Work.fetch_work("むさしの")[0]
+        annict_data = Annict::Work.fetch_work(title: "むさしの")[0]
         work = Work.create(title: annict_data["title"],annict_id: annict_data["id"],release_id: release.id)
         episodes = Annict::Episode.fetch_episodes(work)
         binding.break
         expect(episodes[0]["work"]["title"] === annict_data["title"]).to be_truthy
+      end
+    end
+  end
+
+  describe "Castクラス" do
+    describe "fetch_castsメソッド" do
+      it "指定した作品のcastを取得できていること" do
+        release = Release.create(year: 2022,season: "春")
+        work_data = Annict::Work.fetch_work(title: "むさしの")[0]
+        work = Work.create(title: work_data["title"],annict_id: work_data["id"],release_id: Release.first.id)
+        casts = Annict::Cast.fetch_casts(work)
+        expect(casts.count > 0).to be_truthy
       end
     end
   end

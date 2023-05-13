@@ -34,4 +34,12 @@ module Annict
       JSON.parse(Faraday.get("#{base_url}/v1/episodes?fields=title,number_text,work.title,work.id&filter_work_id=#{work.annict_id}&sort_id=asc&access_token=#{access_token}").body)["episodes"]
     end
   end
+
+  class Cast
+    def self.fetch_casts(work)
+      base_url = "https://api.annict.com"
+      access_token = ENV['ANNICT_ACCESS_TOKEN']
+      JSON.parse(Faraday.get("#{base_url}/v1/casts?fields=character.name,person.name,work.title,work.id&filter_work_id=#{work.annict_id}&sort_id=asc&access_token=#{access_token}").body)["casts"]
+    end
+  end
 end
