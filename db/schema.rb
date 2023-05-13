@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_05_04_131117) do
+ActiveRecord::Schema[7.0].define(version: 2023_05_13_084046) do
   create_table "casts", charset: "utf8mb4", force: :cascade do |t|
     t.bigint "work_id", null: false
     t.string "character"
@@ -36,8 +36,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_04_131117) do
   end
 
   create_table "episodes", charset: "utf8mb4", force: :cascade do |t|
-    t.string "title"
-    t.integer "episode_number"
+    t.text "title"
+    t.string "episode_number"
     t.bigint "work_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
