@@ -1,3 +1,5 @@
-<%= turbo_frame_tag "works" do %>
-  <%= render partial: "works/shared/work", collection: @works %>
-<% end %>
+<%= turbo_frame_tag "works-page-#{@works.current_page}", class: "works" do %>
+    <%= render partial: "works/shared/work", collection: @works %>
+    <%= turbo_frame_tag "works-page-#{@works.next_page}", class: "works", loading: :lazy, src: path_to_next_page(@works) %>
+  <% end %>
+</div>

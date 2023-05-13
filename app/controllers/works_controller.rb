@@ -12,7 +12,7 @@ class WorksController < ApplicationController
 
   def search
     release = @q.result[0]
-    @works = release.works
+    @works = release.works.page(params[:page])
   end
 
   private
