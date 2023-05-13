@@ -8,7 +8,7 @@ class CreateWorkRates < ActiveRecord::Migration[7.0]
       t.integer :deep
       t.integer :favorite_degree
       t.references :user, null: false, foreign_key: true
-      t.references :work, type: :integer, null: false
+      t.references :work, type: :bigint, null: false
 
       t.timestamps
     end

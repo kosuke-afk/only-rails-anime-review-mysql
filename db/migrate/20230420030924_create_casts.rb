@@ -1,7 +1,7 @@
 class CreateCasts < ActiveRecord::Migration[7.0]
   def change
     create_table :casts do |t|
-      t.references :work, type: :integer, null: false
+      t.references :work, type: :bigint, null: false
       t.string :character
       t.string :cast
 

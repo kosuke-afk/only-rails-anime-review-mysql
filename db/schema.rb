@@ -12,7 +12,7 @@
 
 ActiveRecord::Schema[7.0].define(version: 2023_05_04_131117) do
   create_table "casts", charset: "utf8mb4", force: :cascade do |t|
-    t.integer "work_id", null: false
+    t.bigint "work_id", null: false
     t.string "character"
     t.string "cast"
     t.datetime "created_at", null: false
@@ -38,7 +38,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_04_131117) do
   create_table "episodes", charset: "utf8mb4", force: :cascade do |t|
     t.string "title"
     t.integer "episode_number"
-    t.integer "work_id", null: false
+    t.bigint "work_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["work_id"], name: "index_episodes_on_work_id"
@@ -68,19 +68,18 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_04_131117) do
     t.integer "deep"
     t.integer "favorite_degree"
     t.bigint "user_id", null: false
-    t.integer "work_id", null: false
+    t.bigint "work_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_work_rates_on_user_id"
     t.index ["work_id"], name: "index_work_rates_on_work_id"
   end
 
-  create_table "works", charset: "utf8mb4", force: :cascade do |t|
+  create_table "works", primary_key: "annict_id", charset: "utf8mb4", force: :cascade do |t|
     t.string "title"
     t.integer "episode_count"
     t.string "media"
     t.string "image"
-    t.integer "annict_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "title_kana"
