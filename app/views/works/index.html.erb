@@ -1,13 +1,14 @@
 <div class="form-area">
-  <%= search_form_for @q, url: works_search_path, data: { turbo_frame: "works"} do |form| %>
+  <%= search_form_for @q, url: works_search_path, data: { turbo_frame: "works-page-1"} do |form| %>
     <%= form.select :year_eq, @years.map { |data| [data.year,data.year]} %>
     <%= form.select :season_eq, @seasons.map { |data| [data.season,data.season]} %>
     <%= form.submit "検索", class: "submit-button"%>
   <% end %>
 </div>
 <div class="works-area">
-  <%= turbo_frame_tag "works" do %>
+  <%= turbo_frame_tag "works-page-#{@works.current_page}", class: "works" do %>
     <%= render partial: "works/shared/work", collection: @works %>
+    <%= turbo_frame_tag "works-page-#{@works.next_page}", class: "works", loading: :lazy, src: path_to_next_page(@works) %>
   <% end %>
 </div>
 <% content_for :css do %>

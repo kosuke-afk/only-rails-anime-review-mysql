@@ -7,7 +7,7 @@ class WorksController < ApplicationController
   def index
     @years = Release.select(:year).distinct
     @seasons = Release.select(:season).distinct
-    @works = Work.limit(10);
+    @works = Work.all.page(params[:page]);
   end
 
   def search

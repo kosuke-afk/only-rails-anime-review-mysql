@@ -30,6 +30,7 @@ gem "faraday"
 gem "dotenv"
 gem "faker"
 gem 'ransack'
+gem 'kaminari'
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
 
