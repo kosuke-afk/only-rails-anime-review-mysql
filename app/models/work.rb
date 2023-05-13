@@ -19,6 +19,13 @@ class Work < ApplicationRecord
      @work = Work.find_by(title: work["title"])
   end
 
+  def self.create_sample_data(quantity: 15)
+    works = Annict::Work.fetch_work(quantity: quantity)
+    works.each do |work|
+      @work = Work.create(title: work["title"],annict_id: work["id"],release_id: Release.first.id)
+    end
+  end
+
   def check_duplication?
     @work = Work.where(
       title_kana: self.title_kana)
@@ -33,6 +40,10 @@ class Work < ApplicationRecord
     ["annict_id", "created_at", "episode_count", "image", "media", "title", "title_kana", "updated_at"]
   end
   
+  def self.register_work(title)
+    work = Annict::Work.fetch_work(title)
+    
+  end
   def self.register_annict_data releases
     releases.each do |release|
       year = release["year"]
@@ -51,7 +62,7 @@ class Work < ApplicationRecord
       total_page = (works["total_count"] / 50.to_f).ceil
       current_page = 1
       while (current_page <= total_page)
-        works = Annict::Work.fetch_works(year: year,season: season,page: current_page)
+        works = Annict::Work.fetch_works_each_page(year: year,season: season,page: current_page)
         works.each do |work|
           self.create_or_update(work: work, release_id: release.id)
         end

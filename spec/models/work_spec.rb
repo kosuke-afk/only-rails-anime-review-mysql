@@ -21,6 +21,13 @@ RSpec.describe Work do
     end
   end
 
+  describe "create_sample_dataメソッド" do
+    it "指定した数のデータが作成できていること" do
+      Work.create_sample_data(quantity: 20)
+      expect(Work.count === 20).to be_truthy
+    end
+  end
+
   describe "create_or_updateメソッド" do
     let!(:work) {{"title" => "ヨスガのソラ","title_kana" => "よすがのそら","images" => {"recommended_url" => ""},"episode_count" => 12,"media" => "TV","id" => 4}}
     it "データが作成できていること" do
