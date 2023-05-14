@@ -1,9 +1,17 @@
 
 <div class="work">
   <div class="work-image">
-    <img src="/assets/no_images.png" class="image">
+    <%= image_tag work.image.empty? ? "/assets/no_images.png" : work.image, class: "image" %>
   </div>
   <div class="work-title">
     <h1><%= work.title %></h1>
+  </div>
+  <div class="works-casts">
+    <% casts.each do |cast| %>
+      <div class="cast">
+        <p class="cast-character"><%= cast.character%>:</p>
+        <p class="cast-actor"><%= cast.cast %></p>
+      </div>
+    <% end %>
   </div>
 </div>
