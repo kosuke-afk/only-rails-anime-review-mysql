@@ -1,5 +1,5 @@
 <div class="form-area">
-  <%= search_form_for @q, url: works_search_path, data: { turbo_frame: "works-page-1"} do |form| %>
+  <%= search_form_for @q, url: search_works_path, data: { turbo_frame: "works-page-1"} do |form| %>
     <%= form.select :year_eq, @years.map { |data| [data.year,data.year]} %>
     <%= form.select :season_eq, @seasons.map { |data| [data.season,data.season]} %>
     <%= form.submit "検索", class: "submit-button"%>

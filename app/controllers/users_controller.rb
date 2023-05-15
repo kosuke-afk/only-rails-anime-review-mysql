@@ -9,7 +9,7 @@ class UsersController < ApplicationController
     if @user.save
       log_in @user
       flash[:success] = "新規作成に成功しました。"
-      redirect_to works_index_path
+      redirect_to works_path
     else
       flash.now[:danger] = @user.errors.full_messages
       render turbo_stream: [

@@ -5,7 +5,7 @@ class SessionController < ApplicationController
       log_in @user
       session[:modal_close] = false
       flash[:success] = "ログインしました。"
-      redirect_to works_index_path
+      redirect_to works_path
     else
       flash.now[:danger] = ["メールアドレスまたはパスワードが違います"]
       render turbo_stream: [
@@ -22,9 +22,6 @@ class SessionController < ApplicationController
     end
   end
   
-  def example
-    redirect_to works_index_path
-  end
   private
 
     def params_login

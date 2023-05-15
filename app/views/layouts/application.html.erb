@@ -39,13 +39,13 @@
             </div>
             <ul class="mobile-menu__main">
               <li class="mobile-menu__list">
-                <%= link_to "作品一覧", works_index_path, class: "mobile-menu__link" %>
+                <%= link_to "作品一覧", works_path, class: "mobile-menu__link" %>
               </li>
               <li class="mobile-menu__list">
                 <%= link_to "Myページ", "#", class: "mobile-menu__link" %>
               </li>
               <li class="mobile-menu__list">
-                <%= link_to "ユーザー情報", user_path(current_user.id), class: "mobile-menu__link" %>
+                <%= link_to "ユーザー情報", edit_user_path(@current_user), class: "mobile-menu__link" %>
               </li>
               <li class="mobile-menu__list">
                 <%= link_to "ログアウト", session_logout_path, class: "mobile-menu__link" %>
