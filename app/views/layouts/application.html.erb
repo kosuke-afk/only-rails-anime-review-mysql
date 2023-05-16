@@ -10,7 +10,8 @@
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
 
     <%= javascript_importmap_tags%>
-    <%= yield :css%>
+    <%= yield :css %>
+    <%= yield :js %>
   </head>
 
   <body>
@@ -18,6 +19,10 @@
       <div id="container">
         <div class="mobile-menu__cover">
         </div>
+        <%= link_to root_path, data: {turbo_frame: "modal"} do %>
+          <div id="top-modal__mask">
+          </div>
+        <% end %>
         <%= render "shared/header" %>
           <% if flash.present? %>
             <%= render "shared/flash_message" %>
@@ -48,7 +53,7 @@
                 <%= link_to "ユーザー情報", edit_user_path(@current_user), class: "mobile-menu__link" %>
               </li>
               <li class="mobile-menu__list">
-                <%= link_to "ログアウト", session_logout_path, class: "mobile-menu__link" %>
+                <%= link_to "ログアウト", session_logout_path, data: {turbo_method: "delete"},class: "mobile-menu__link" %>
               </li>
             </ul>
         </nav>
