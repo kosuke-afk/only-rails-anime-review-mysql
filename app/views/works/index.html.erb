@@ -1,18 +1,20 @@
-<div class="form-area">
-  <%= search_form_for @q, url: search_works_path, data: { turbo_frame: "works-page-1"} do |form| %>
-    <%= form.select :year_eq, @years.map { |data| [data.year,data.year]} %>
-    <%= form.select :season_eq, @seasons.map { |data| [data.season,data.season]} %>
-    <%= form.submit "検索", class: "submit-button"%>
-  <% end %>
-</div>
-<div class="works-area">
-  <%= turbo_frame_tag "works-page-#{@works.current_page}", class: "works" do %>
-    <% @works.each do |work| %>
-      <%= render partial: "works/shared/work", locals: {work: work, casts: work.casts.limit(5)} %>
+<div class="index-content">
+  <div class="form-area">
+    <%= search_form_for @q, url: search_works_path, data: { turbo_frame: "works-page-1"} do |form| %>
+      <%= form.select :year_eq, @years.map { |data| [data.year,data.year]} %>
+      <%= form.select :season_eq, @seasons.map { |data| [data.season,data.season]} %>
+      <%= form.submit "検索", class: "submit-button"%>
     <% end %>
-    <%= turbo_frame_tag "works-page-#{@works.next_page}", class: "works", loading: :lazy, src: path_to_next_page(@works) %>
+  </div>
+  <div class="works-area">
+    <%= turbo_frame_tag "works-page-#{@works.current_page}", class: "works" do %>
+      <% @works.each do |work| %>
+        <%= render partial: "works/shared/work", locals: {work: work, casts: work.casts.limit(5)} %>
+      <% end %>
+      <%= turbo_frame_tag "works-page-#{@works.next_page}", class: "works", loading: :lazy, src: path_to_next_page(@works) %>
+    <% end %>
+  </div>
+  <% content_for :css do %>
+    <%= stylesheet_link_tag "works/index" %>
   <% end %>
 </div>
-<% content_for :css do %>
-  <%= stylesheet_link_tag "works/index" %>
-<% end %>

@@ -1,6 +1,10 @@
 @use "../global/mq" as *;
 @use "../global/color" as *;
 
+.index-content {
+  display: block;
+}
+
 .form-area {
   background-color: transparent;
   height: 10rem;

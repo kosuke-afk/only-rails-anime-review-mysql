@@ -4,13 +4,13 @@ class SessionController < ApplicationController
     if @user.present? && @user.authenticate(params_login[:password])
       log_in @user
       session[:modal_close] = false
-      flash[:success] = "ログインしました。"
-      redirect_to works_path
+      flash.now[:success] = "ログインしました。"
+      redirect_to works_path, status: :see_other
     else
       flash.now[:danger] = ["メールアドレスまたはパスワードが違います"]
       render turbo_stream: [
         turbo_stream.replace("error-area", partial: "home/partial/error_messages" )
-      ],status: :unprocessable_entity
+      ], status: :unprocessable_entity
     end
   end
 
@@ -18,7 +18,7 @@ class SessionController < ApplicationController
     if logged_in?
       log_out
       flash[:success] = "ログアウトしました"
-      redirect_to root_path
+      redirect_to root_path, status: :see_other
     end
   end
   
