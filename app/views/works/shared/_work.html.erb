@@ -1,4 +1,4 @@
-<%= link_to work_path(work.annict_id) do %>
+<%= link_to work_path(work.annict_id), class: "work-link" do %>
   <div class="work">
     <div class="work-image">
       <%= image_tag work.image.empty? ? "/assets/no_images.png" : work.image, class: "image" %>

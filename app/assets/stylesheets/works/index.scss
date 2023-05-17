@@ -74,19 +74,11 @@
       gap: 0 5%;
     }
   }
-  & .work {
+  & .work-link {
     width: 80%;
     max-width: 392px;
     height: 15rem;
     margin: auto;
-    border-radius: 14px;
-    background-color: black;
-    &:last-child {
-      margin-bottom: 5rem;
-    }
-    &:hover {
-      opacity: 0.8;
-    }
     @include mq(md) {
       width: 45%;
       height: 17rem;
@@ -98,6 +90,19 @@
     }
     @include mq(xl) {
       width: 30%;
+    }
+  }
+  & .work {
+    width: 100%;
+    height: 100%;
+    border-radius: 14px;
+    background-color: black;
+
+    &:last-child {
+      margin-bottom: 5rem;
+    }
+    &:hover {
+      opacity: 0.8;
     }
     & .work-image {
       width: 100%;
