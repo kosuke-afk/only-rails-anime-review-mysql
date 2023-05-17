@@ -84,6 +84,9 @@
     &:last-child {
       margin-bottom: 5rem;
     }
+    &:hover {
+      opacity: 0.8;
+    }
     @include mq(md) {
       width: 45%;
       height: 17rem;
