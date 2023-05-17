@@ -4,7 +4,7 @@ export default class Modal {
     this.button = document.getElementById(openButton);
     this.mask = document.getElementById(mask);
     this._addOpenEvent(this.button, className);
-    this._addCloseEvent(this.mask);
+    this.addCloseEvent(this.mask);
   }
 
   _addOpenEvent(dom, className) {
