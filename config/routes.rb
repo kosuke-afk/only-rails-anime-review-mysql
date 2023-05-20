@@ -10,7 +10,7 @@ Rails.application.routes.draw do
 
   resources :works, only: [:index,:show] do
     member do
-      patch ':user_id/works_rate/update', to: 'works_rate#update', as: :update_rate
+      resources :work_rates, only: [:update]
     end
     get 'search', on: :collection
   end
