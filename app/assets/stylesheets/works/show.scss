@@ -1,0 +1,133 @@
+@use "../global/mq" as *;
+@use "../global/color" as *;
+.work-image {
+  width: 100%;
+  height: 100%;
+  & img {
+    width: 100%;
+    height: auto;
+    min-height: 19rem;
+    max-height: 26rem;
+    vertical-align: bottom;
+    @include mq(lg) {
+      min-height: 30rem;
+      max-height: 32rem;
+    }
+    @include mq(xl) {
+      min-height: 36rem;
+      max-height: 39rem;
+    }
+  }
+}
+.title-and-rate {
+  background-color: black;
+}
+
+.work-title {
+  color: $gold;
+  padding-top: 17px;
+  padding-left: 16px;
+  @include mq(lg) {
+    padding-top: 34px;
+    padding-left: 25px;
+  }
+  & h1 {
+    font-size: 1.4rem;
+    @include mq(lg) {
+      font-size: 1.9rem;
+    }
+    @include mq(xl) {
+      font-size: 2.4rem;
+    }
+  }
+}
+
+.work-rate {
+  color: $gold;
+  width: 60%;
+  margin: 30px auto;
+  @include mq(md) {
+    max-width: 40rem;
+  }
+  &__form {
+    display: flex;
+    flex-direction: column;
+    height: 20rem;
+    & .work-rate-field {
+      display: flex;
+      flex-direction: column;
+      gap: 5px 0px;
+      & .work-rate-item {
+        display: flex;
+        width: 100%;
+        & .range {
+          width: 95%;
+          appearance: none;
+          height: 6px;
+          border-radius: 8px;
+          &::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            background: #f00;
+            height: 20px;
+            width: 20px;
+            border-radius: 50%;
+          }
+          &::-ms-tooltip {
+            display: none;
+          }
+          &::-moz-range-track {
+            height: 0;
+          }
+          &::-moz-range-thumb {
+            background: #f00;
+            height: 20px;
+            width: 20px;
+            border: none;
+            border-radius: 50%;
+          }
+        }
+      }
+    }
+  }
+}
+.episodes {
+  display: flex;
+  flex-flow: column;
+  font-size: 1.5rem;
+  text-align: left;
+  padding-left: 56px;
+  padding-right: 50px;
+  padding-bottom: 80px;
+  @include mq(md) {
+    padding-left: 63px;
+    padding-right: 92px;
+  }
+  @include mq(lg) {
+    font-size: 1.7rem;
+    padding-left: 116px;
+    padding-right: 147px;
+  }
+  @include mq(xl) {
+    padding-left: 205px;
+    padding-right: 234px;
+    font-size: 2rem;
+  }
+  & .episode {
+    display: flex;
+    align-items: center;
+    gap: 0 12%;
+    height: 6rem;
+    padding: 5px 0 0 26px;
+    background-color: black;
+    border: 1px $gold solid;
+    color: $gold;
+    &.title-above-29 {
+      height: 11rem;
+      align-items: normal;
+      gap: 0 10px;
+    }
+    &.double-digit-episode {
+      gap: 0 9%;
+    }
+  }
+}

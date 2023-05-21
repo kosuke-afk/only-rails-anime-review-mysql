@@ -1,0 +1,4 @@
+<div class="episode <%= episode.title.length >= 29 ? "title-above-29" : "" %> <%= episode.episode_number.length === 4 ? "double-digit-episode" : "" %> ">
+  <p class="episode-number"><%= episode.episode_number %></p>
+  <p class="episode-title"><%= episode.title %></p>
+</div>

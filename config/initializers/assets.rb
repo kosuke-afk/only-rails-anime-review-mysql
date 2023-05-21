@@ -9,8 +9,8 @@ Rails.application.config.assets.version = "1.0"
 # Rails.application.config.dartsass.build_options << " --quiet-deps"
 Rails.application.config.dartsass.builds = {
   "application.scss"  => "application.css",
-  "home/top.scss"       => "home/top.css",
-  "works/index.scss"  => "works/index.css"
+  "home"       => "home",
+  "works"  => "works"
 }
 # Add additional assets to the asset load path.
 # Rails.application.config.assets.paths << Emoji.images_path

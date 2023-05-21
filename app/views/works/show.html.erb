@@ -1,2 +1,19 @@
-<h1>Works#show</h1>
-<p>Find me in app/views/works/show.html.erb</p>
+<div class="work-show">
+    <div class="work-image">
+        <%= image_tag @work.image.empty? ? "/assets/no_images.png" : @work.image %>
+    </div>
+    <div class="title-and-rate">
+      <div class="work-title">
+          <h1><%= @work.title %></h1>
+      </div>
+      <%= render partial: "work_rates/shared/work_rates" %>
+    </div>
+    <div class="episodes">
+      <% @episodes.each do |episode| %>
+        <%= render partial: "works/shared/episode", locals: {episode: episode} %>
+      <% end %>
+    </div>
+</div>
+<% content_for :css do %>
+  <%= stylesheet_link_tag "works/show" %>
+<% end %>
