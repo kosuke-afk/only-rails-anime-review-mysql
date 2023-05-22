@@ -1,10 +1,10 @@
 import { Controller } from "@hotwired/stimulus";
 
 export default class extends Controller {
-  static targets = ["range"];
+  static targets = ["workRange"];
 
   connect() {
-    this.rangeTargets.forEach((target) => {
+    this.workRangeTargets.forEach((target) => {
       let persent = target.value * 20;
       target.style.background = `linear-gradient(to right,red ${persent}%, #fff ${persent}%)`;
       target.addEventListener("input", (e) => {
