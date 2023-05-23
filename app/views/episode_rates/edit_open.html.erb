@@ -1,0 +1,3 @@
+<%= turbo_frame_tag "episode-#{@episode.id}" do %>
+  <%= render partial: "works/shared/episode",  locals: { episode: @episode, open: true, episode_rate: @episode_rate } %>
+<% end %>

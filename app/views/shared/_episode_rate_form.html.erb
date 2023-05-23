@@ -1,0 +1,42 @@
+<%= form_with model: episode_rate, url: update_episode_rate_user_path(current_user,episode), id: "episode-rate-form",data: {turbo_method: :patch, controller: "episode-rate-form", action: "input->episode-rate-form#submit"}, class: "episode-rate-form" do |form| %>
+    <div class="episode-rate-field"  data-controller="rate-range">
+        <%= form.label :impressed, class: "episode-rate-label" %>
+        <div class="episode-rate-item">
+            <span class="min-value">0</span>
+            <%= form.range_field :impressed, data: { episode_rate_form_target: "episodeRange", rate_range_target: "range"},in: 0..100, class: "episode-range"%>
+            <span class="max-value" data-rate-range-target="score"></span>
+        </div>
+    </div>
+    <div class="episode-rate-field"  data-controller="rate-range">
+        <%= form.label :comedy, class: "episode-rate-label" %>
+        <div class="episode-rate-item">
+            <span class="min-value">0</span>
+            <%= form.range_field :comedy, data: { episode_rate_form_target: "episodeRange",rate_range_target: "range" },in: 0..100, class: "episode-range"%>
+            <span class="max-value" data-rate-range-target="score"></span>
+        </div>
+    </div>
+    <div class="episode-rate-field"  data-controller="rate-range">
+        <%= form.label :love, class: "episode-rate-label" %>
+        <div class="episode-rate-item">
+            <span class="min-value">0</span>
+            <%= form.range_field :love, data: { episode_rate_form_target: "episodeRange", rate_range_target: "range" }, in: 0..100, class: "episode-range"%>
+            <span class="max-value" data-rate-range-target="score"></span>
+        </div>
+    </div>
+    <div class="episode-rate-field"  data-controller="rate-range">
+        <%= form.label :excitement, class: "episode-rate-label" %>
+        <div class="episode-rate-item">
+            <span class="min-value">0</span>
+            <%= form.range_field :excitement, data: { episode_rate_form_target: "episodeRange", rate_range_target: "range" }, in: 0..100, class: "episode-range"%>
+            <span class="max-value" data-rate-range-target="score"></span>
+        </div>
+    </div>
+    <div class="episode-rate-field" data-controller="rate-range">
+        <%= form.label :deep, class: "epsode-rate-label" %>
+        <div class="episode-rate-item">
+            <span class="min-value">0</span>
+            <%= form.range_field :deep, data: { episode_rate_form_target: "episodeRange", rate_range_target: "range" }, in: 0..100, class: "episode-range"%>
+            <span class="max-value" data-rate-range-target="score"></span>
+        </div>
+    </div>
+<% end %>

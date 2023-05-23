@@ -10,7 +10,7 @@
     </div>
     <div class="episodes">
       <% @episodes.each do |episode| %>
-        <%= render partial: "works/shared/episode", locals: {episode: episode} %>
+        <%= render partial: "works/shared/episode", locals: {episode: episode, open: false } %>
       <% end %>
     </div>
 </div>

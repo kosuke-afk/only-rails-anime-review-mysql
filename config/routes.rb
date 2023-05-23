@@ -2,21 +2,21 @@ Rails.application.routes.draw do
   root 'home#top'
   get 'create_user_modal', to: "home#create_user_modal"
   get 'login_modal', to: "home#login_modal"
-  resources :users, only: [:edit,:create] do 
+  post 'session/login'
+  delete 'session/logout'
+  resources :users, only: [:edit,:create] do
     member do
-      resources :episode_rates, only: [:edit,:update]
+      get "episodes/:episode_id/open", to: "episode_rates#edit_open", as: "open_episode_rate"
+      get "episodes/:episode_id/close", to: "episode_rates#edit_close", as: "close_episode_rate"
+      patch "episodes/:episode_id", to: "episode_rates#update", as: "update_episode_rate"
     end
   end
-
   resources :works, only: [:index,:show] do
     member do
       resources :work_rates, only: [:update]
     end
     get 'search', on: :collection
   end
-
-  post 'session/login'
-  delete 'session/logout'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")

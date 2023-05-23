@@ -4,40 +4,40 @@
       <%= form.label :impressed, class: "work-rate-label"%>
       <div class="work-rate-item">
         <span class="min-value">0</span>
-        <%= form.range_field :impressed, data: { request_work_rate_target: "range" },in: 0..5, id: "impressed", class: "range"%>
+        <%= form.range_field :impressed, data: { request_work_rate_target: "workRange" },in: 0..5, id: "impressed", class: "range"%>
         <span class="max-value">5</span>
       </div>
-      <div class="work-rate-field">
-        <%= form.label :comedy, class: "work-rate-label"%>
-        <div class="work-rate-item">
-          <span class="min-value">0</span>
-          <%= form.range_field :comedy,  data: { request_work_rate_target: "range" },in: 0..5, id: "comedy", class: "range" %>
-          <span class="max-value comedy">5</span>
-        </div>
+    </div>
+    <div class="work-rate-field">
+      <%= form.label :comedy, class: "work-rate-label"%>
+      <div class="work-rate-item">
+        <span class="min-value">0</span>
+        <%= form.range_field :comedy,  data: { request_work_rate_target: "workRange" },in: 0..5, id: "comedy", class: "range" %>
+        <span class="max-value comedy">5</span>
       </div>
-      <div class="work-rate-field">
-        <%= form.label :love, class: "work-rate-label"%>
-        <div class="work-rate-item">
-          <span class="min-value">0</span>
-          <%= form.range_field :love,  data: { request_work_rate_target: "range" }, in: 0..5, id: "love", class: "range" %>
-          <span class="max-value">5</span>
-        </div>
+    </div>
+    <div class="work-rate-field">
+      <%= form.label :love, class: "work-rate-label"%>
+      <div class="work-rate-item">
+        <span class="min-value">0</span>
+        <%= form.range_field :love,  data: { request_work_rate_target: "workRange" }, in: 0..5, id: "love", class: "range" %>
+        <span class="max-value">5</span>
       </div>
-      <div class="work-rate-field">
-        <%= form.label :excitement, class: "work-rate-label"%>
-        <div class="work-rate-item">
-          <span class="min-value">0</span>
-          <%= form.range_field :excitement,  data: { request_work_rate_target: "range" }, in: 0..5, id: "excitement", class: "range" %>
-          <span class="max-value">5</span>
-        </div>
+    </div>
+    <div class="work-rate-field">
+      <%= form.label :excitement, class: "work-rate-label"%>
+      <div class="work-rate-item">
+        <span class="min-value">0</span>
+        <%= form.range_field :excitement,  data: { request_work_rate_target: "workRange" }, in: 0..5, id: "excitement", class: "range" %>
+        <span class="max-value">5</span>
       </div>
-      <div class="work-rate-field">
-        <%= form.label :deep, class: "work-rate-label"%>
-        <div class="work-rate-item">
-          <span class="min-value">0</span>
-          <%= form.range_field :deep,  data: { request_work_rate_target: "range" }, in: 0..5, class: "range" %>
-          <span class="max-value">5</span>
-        </div>
+    </div>
+    <div class="work-rate-field">
+      <%= form.label :deep, class: "work-rate-label"%>
+      <div class="work-rate-item">
+        <span class="min-value">0</span>
+        <%= form.range_field :deep,  data: { request_work_rate_target: "workRange" }, in: 0..5, class: "range" %>
+        <span class="max-value">5</span>
       </div>
     </div>
   <% end %>
