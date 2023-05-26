@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_05_13_084046) do
+ActiveRecord::Schema[7.0].define(version: 2023_05_23_154347) do
   create_table "casts", charset: "utf8mb4", force: :cascade do |t|
     t.bigint "work_id", null: false
     t.string "character"
@@ -31,8 +31,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_13_084046) do
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "work_id", null: false
     t.index ["episode_id"], name: "index_episode_rates_on_episode_id"
     t.index ["user_id"], name: "index_episode_rates_on_user_id"
+    t.index ["work_id"], name: "index_episode_rates_on_work_id"
   end
 
   create_table "episodes", charset: "utf8mb4", force: :cascade do |t|
@@ -41,6 +43,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_13_084046) do
     t.bigint "work_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "sort_number", null: false
     t.index ["work_id"], name: "index_episodes_on_work_id"
   end
 
@@ -92,6 +95,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_13_084046) do
   add_foreign_key "casts", "works", primary_key: "annict_id"
   add_foreign_key "episode_rates", "episodes"
   add_foreign_key "episode_rates", "users"
+  add_foreign_key "episode_rates", "works", primary_key: "annict_id"
   add_foreign_key "episodes", "works", primary_key: "annict_id"
   add_foreign_key "work_rates", "users"
   add_foreign_key "work_rates", "works", primary_key: "annict_id"
