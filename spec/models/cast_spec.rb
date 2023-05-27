@@ -4,7 +4,7 @@ RSpec.describe Cast, type: :model do
   describe "all_registerメソッド" do
     before do
       @releases = Release.create(year: 2022,season: "春")
-      Work.create_sample_data(quantity: 20)
+      TestMethod::Work.create_sample_data(quantity: 20)
       works = Work.all
       @before_register_count = Cast.count
       Cast.all_register

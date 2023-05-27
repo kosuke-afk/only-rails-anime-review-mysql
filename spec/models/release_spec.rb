@@ -10,13 +10,13 @@ RSpec.describe Release do
     context "重複している場合" do
       it "trueが返る" do
         @release = Release.create(year: @year, season: @season)
-        expect(@release.check_duplication?).to be_truthy
+        expect(TestMethod::Release.check_duplication?(@year,@season)).to be_truthy
       end
     end
     context "重複していない場合"do
       it "falseが返る" do
         @release = Release.first
-        expect(@release.check_duplication?).to be_falsey
+        expect(TestMethod::Release.check_duplication?(@release.year,@release.season)).to be_falsey
       end
     end
   end
@@ -29,7 +29,7 @@ RSpec.describe Release do
       Release.register(2011,2013)
       @releases = Release.all
       @releases.each do |release|
-        expect(release.check_duplication?).to be_falsey
+        expect(TestMethod::Release.check_duplication?(release.year,release.season)).to be_falsey
       end
     end
   end

@@ -34,18 +34,27 @@ RSpec.describe Annict do
 
     describe "fetch_workメソッド" do
       let!(:title) {"むさしの"}
-      let!(:quantity) {15}
-      context "引数がtitleの場合" do
-        it "指定したタイトルのデータが取れていること" do
-          work = Annict::Work.fetch_work(title: title)
-          expect(work).to be_truthy
+      it "指定したタイトルのデータが取れていること" do
+        work = Annict::Work.fetch_work(title)
+        expect(work).to be_truthy
+      end
+    end
+
+    describe "fetch_worksメソッド" do
+      context "50件のデータで映画の作品を含む場合" do
+        it "取得したデータに映画のデータも含まれていること" do
+          works = Annict::Work.fetch_works(quantity: 50, exceptMovie: false)
+          expect(works.count === 50).to be_truthy
+          @movie_works = works.select { |work| work["media_text"] === "映画"}
+          expect(@movie_works.count != 0).to be_truthy
         end
       end
-      context "引数がquantityの場合" do
-        it "指定した個数の作品のデータが取れてきていること" do
-          work = Annict::Work.fetch_work(quantity: quantity)
-          binding.break
-          expect(work.count === quantity).to be_truthy
+      context "50件のデータで映画の作品を含まない場合" do
+        it "取得したデータに映画のデータは含まれないこと" do
+          works = Annict::Work.fetch_works(quantity: 50, exceptMovie: true)
+          expect(works.count === 50).to be_truthy
+          @movie_works = works.select { |work| work["media_text"] === "映画"}
+          expect(@movie_works.count === 0).to be_truthy
         end
       end
     end
@@ -55,10 +64,9 @@ RSpec.describe Annict do
     describe "fetch_episodesメソッド" do
       it "指定した作品のエピソードが取得できていること" do
         release = Release.create(year: 2022, season: "夏")
-        annict_data = Annict::Work.fetch_work(title: "むさしの")[0]
+        annict_data = Annict::Work.fetch_work("むさしの")[0]
         work = Work.create(title: annict_data["title"],annict_id: annict_data["id"],release_id: release.id)
         episodes = Annict::Episode.fetch_episodes(work)
-        binding.break
         expect(episodes[0]["work"]["title"] === annict_data["title"]).to be_truthy
       end
     end
@@ -68,7 +76,7 @@ RSpec.describe Annict do
     describe "fetch_castsメソッド" do
       it "指定した作品のcastを取得できていること" do
         release = Release.create(year: 2022,season: "春")
-        work_data = Annict::Work.fetch_work(title: "むさしの")[0]
+        work_data = Annict::Work.fetch_work("むさしの")[0]
         work = Work.create(title: work_data["title"],annict_id: work_data["id"],release_id: Release.first.id)
         casts = Annict::Cast.fetch_casts(work)
         expect(casts.count > 0).to be_truthy

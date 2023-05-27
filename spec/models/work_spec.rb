@@ -1,13 +1,13 @@
 require 'rails_helper'
 
 RSpec.describe Work do
-  let!(:release)  {Release.create(year: 2011, season: "春")}
   describe "check_dupplicate?メソッド" do
+    let!(:release)  {Release.create(year: 2011, season: "春")}
     context "データの重複がない" do
       let!(:work)  {{title_kana: "よすがのそら",image: "",episode_count: 12,media: "TV",annict_id: 3}}
       it "falseが返ってくる" do
         @work = Work.create(**work.merge({release_id: release.id}))
-        expect(@work.check_duplication?).to be_falsey
+        expect(TestMethod::Work.check_duplication?(work[:title_kana])).to be_falsey
       end
     end
     context "データの重複がある" do
@@ -16,20 +16,22 @@ RSpec.describe Work do
       it "trueが返ってくる" do
         Work.create(**work1.merge({release_id: release.id}))
         @dupplicate_work = Work.create(**work2.merge({release_id: release.id}))
-        expect(@dupplicate_work.check_duplication?).to be_truthy
+        expect(TestMethod::Work.check_duplication?(work1[:title_kana])).to be_truthy
       end
     end
   end
 
   describe "create_sample_dataメソッド" do
+    let!(:release)  {Release.create(year: 2011, season: "春")}
     it "指定した数のデータが作成できていること" do
-      Work.create_sample_data(quantity: 20)
+      TestMethod::Work.create_sample_data(quantity: 20)
       expect(Work.count === 20).to be_truthy
     end
   end
 
   describe "create_or_updateメソッド" do
     let!(:work) {{"title" => "ヨスガのソラ","title_kana" => "よすがのそら","images" => {"recommended_url" => ""},"episode_count" => 12,"media" => "TV","id" => 4}}
+    let!(:release)  {Release.create(year: 2011, season: "春")}
     it "データが作成できていること" do
       expect(Work.first).to be_falsey
       @work = Work.create_or_update(work: work, release_id: release.id)
@@ -39,12 +41,12 @@ RSpec.describe Work do
     it "重複データを作成しないこと" do
       Work.create_or_update(work: work, release_id: release.id)
       @work = Work.create_or_update(work: work, release_id: release.id)
-      expect(@work.check_duplication?).to be_falsey
+      expect(TestMethod::Work.check_duplication?(work["title_kana"])).to be_falsey
     end
   end
 
   describe "register_annict_dataメソッド" do
-    let(:seasons) {["春","夏","秋","冬"]}
+    let!(:seasons) {["春","夏","秋","冬"]}
     before do
       @sYear = 2011
       @eYear = 2012
@@ -57,20 +59,15 @@ RSpec.describe Work do
       Work.register_annict_data(@releases)
     end
     context "1回目に実行された場合" do
-      it "与えられた期間の作品が登録されていること" do
-        first = Work.first.release
-        last = Work.last.release
-        expect((first.year === @sYear && first.season === "春") && (last.year === @eYear && last.season === "冬")).to be_truthy
-      end
-      it "登録されたデータの数とannictにあるデータの数が等しいこと" do
-        seasons = ["spring","summer","autumn","winter"]
-        total_count = 0
+      it "与えられた期間の作品が正しく登録されていること" do
         (@sYear..@eYear).each do |year|
           seasons.each do |season|
-            total_count += Annict::Work.fetch_all_works(year: year,season: season)["total_count"]
+            eg_season = Work.change_season_for_eg(season)
+            database_works = Release.find_by(year: year,season: season).works
+            annict_data_count = Annict::Work.fetch_all_works(year: year, season: eg_season)["total_count"]
+            expect(database_works.count === annict_data_count).to be_truthy
           end
         end
-        expect(Work.count === total_count).to be_truthy
       end
     end
     context "2回目以降実行した場合" do
@@ -98,9 +95,9 @@ RSpec.describe Work do
         it "データの数が増えていること" do
           expect(Work.count > previous_count).to be_truthy
         end
-        it "最後のデータの作品の年とシーズンが増加分の年と冬になっていること" do
-          year = Work.last.release.year
-          season = Work.last.release.season
+        it "追加した分の期間の作品が増えていること" do
+          year = Work.order(created_at: "asc").last.release.year
+          season = Work.order(created_at: "asc").last.release.season
           expect(year === @eYear && season === "冬").to be_truthy
         end
       end
