@@ -1,7 +1,7 @@
 <% if !open %>
   <%= turbo_frame_tag "episode-#{episode.id}" do %>
     <div class="episode-content <%= episode.title.length >= 29 ? "title-above-29" : "" %> <%= episode.episode_number.length === 4 ? "double-digit-episode" : "" %>">
-      <%= link_to open_episode_rate_user_path(current_user,episode), data: {turbo_frame: "episode-#{episode.id}"} do %>
+      <%= link_to open_episode_rate_user_path(current_user,work,episode), data: {turbo_frame: "episode-#{episode.id}"} do %>
         <div class="episode">
           <p class="episode-number"><%= episode.episode_number %></p>
           <p class="episode-title"><%= episode.title %></p>
@@ -12,13 +12,13 @@
 <% else %>
   <%= turbo_frame_tag "episode-#{episode.id}" do %>
     <div class="episode-content <%= episode.title.length >= 29 ? "title-above-29" : "" %> <%= episode.episode_number.length === 4 ? "double-digit-episode" : "" %>">
-      <%= link_to close_episode_rate_user_path(current_user,episode), data: {turbo_frame: "episode-#{episode.id}"} do %>
+      <%= link_to close_episode_rate_user_path(current_user,work,episode), data: {turbo_frame: "episode-#{episode.id}"} do %>
         <div class="episode">
           <p class="episode-number"><%= episode.episode_number %></p>
           <p class="episode-title"><%= episode.title %></p>
         </div>
       <% end %>
-      <%= render partial: "shared/episode_rate_form", locals: {episode: episode, episode_rate: episode_rate} %>
+      <%= render partial: "shared/episode_rate_form", locals: {work: @work,episode: episode, episode_rate: episode_rate} %>
     </div>
   <% end %>
 <% end %>

@@ -1,4 +1,4 @@
-<%= form_with model: episode_rate, url: update_episode_rate_user_path(current_user,episode), id: "episode-rate-form",data: {turbo_method: :patch, controller: "episode-rate-form", action: "input->episode-rate-form#submit"}, class: "episode-rate-form" do |form| %>
+<%= form_with model: episode_rate, url: update_episode_rate_user_path(current_user,work,episode), id: "episode-rate-form",data: {turbo_method: :patch, controller: "episode-rate-form", action: "input->episode-rate-form#submit"}, class: "episode-rate-form" do |form| %>
     <div class="episode-rate-field"  data-controller="rate-range">
         <%= form.label :impressed, class: "episode-rate-label" %>
         <div class="episode-rate-item">

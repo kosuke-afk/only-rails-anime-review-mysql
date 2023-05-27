@@ -6,9 +6,9 @@ Rails.application.routes.draw do
   delete 'session/logout'
   resources :users, only: [:edit,:create] do
     member do
-      get "episodes/:episode_id/open", to: "episode_rates#edit_open", as: "open_episode_rate"
-      get "episodes/:episode_id/close", to: "episode_rates#edit_close", as: "close_episode_rate"
-      patch "episodes/:episode_id", to: "episode_rates#update", as: "update_episode_rate"
+      get ":work_id/episodes/:episode_id/open", to: "episode_rates#edit_open", as: "open_episode_rate"
+      get ":work_id/episodes/:episode_id/close", to: "episode_rates#edit_close", as: "close_episode_rate"
+      patch ":work_id/episodes/:episode_id", to: "episode_rates#update", as: "update_episode_rate"
     end
   end
   resources :works, only: [:index,:show] do
