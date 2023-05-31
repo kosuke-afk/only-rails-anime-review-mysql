@@ -6,7 +6,7 @@
       <div class="work-title">
           <h1><%= @work.title %></h1>
       </div>
-      <%= render partial: "work_rates/shared/work_rates" %>
+      <%= render partial: "works/shared/work_rates", locals: {work_rate: @work_rate} %>
     </div>
     <div class="episodes">
       <% @episodes.each do |episode| %>

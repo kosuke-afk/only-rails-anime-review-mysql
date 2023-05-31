@@ -1,18 +1,18 @@
 <% if !open %>
   <%= turbo_frame_tag "episode-#{episode.id}" do %>
-    <div class="episode-content <%= episode.title.length >= 29 ? "title-above-29" : "" %> <%= episode.episode_number.length === 4 ? "double-digit-episode" : "" %>">
-      <%= link_to open_episode_rate_user_path(current_user,work,episode), data: {turbo_frame: "episode-#{episode.id}"} do %>
-        <div class="episode">
-          <p class="episode-number"><%= episode.episode_number %></p>
-          <p class="episode-title"><%= episode.title %></p>
-        </div>
-      <% end %>
-    </div>
+      <div class="episode-content close <%= episode.title.length >= 29 ? "title-above-29" : "" %> <%= episode.episode_number.length === 4 ? "double-digit-episode" : "" %>">
+        <%= link_to open_episode_rate_user_path(current_user,work,episode), data: {turbo_frame: "episode-#{episode.id}"}, class: "episode-link" do %>
+            <div class="episode">
+              <p class="episode-number"><%= episode.episode_number %></p>
+              <p class="episode-title"><%= episode.title %></p>
+            </div>
+        <% end %>
+      </div>
   <% end %>
 <% else %>
   <%= turbo_frame_tag "episode-#{episode.id}" do %>
-    <div class="episode-content <%= episode.title.length >= 29 ? "title-above-29" : "" %> <%= episode.episode_number.length === 4 ? "double-digit-episode" : "" %>">
-      <%= link_to close_episode_rate_user_path(current_user,work,episode), data: {turbo_frame: "episode-#{episode.id}"} do %>
+    <div class="episode-content open <%= episode.title.length >= 29 ? "title-above-29" : "" %> <%= episode.episode_number.length === 4 ? "double-digit-episode" : "" %>">
+      <%= link_to close_episode_rate_user_path(current_user,work,episode), data: {turbo_frame: "episode-#{episode.id}"}, class: "episode-link" do %>
         <div class="episode">
           <p class="episode-number"><%= episode.episode_number %></p>
           <p class="episode-title"><%= episode.title %></p>

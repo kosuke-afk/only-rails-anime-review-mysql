@@ -43,122 +43,12 @@
   }
 }
 
-.work-rate {
-  color: $gold;
-  width: 60%;
-  margin: 30px auto;
-  border: 1px $gold solid;
-  border-radius: 35px;
-  @include mq(md) {
-    max-width: 40rem;
-  }
-  &__form {
-    display: flex;
-    flex-direction: column;
-    height: 20rem;
-    width: 100%;
-    justify-content: center;
-    align-items: center;
-    & .work-rate-field {
-      display: flex;
-      flex-direction: column;
-      width: 80%;
-      gap: 5px 0px;
-      & .work-rate-item {
-        display: flex;
-        width: 100%;
-        & .range {
-          appearance: none;
-          height: 6px;
-          width: 100%;
-          border-radius: 8px;
-          &::-webkit-slider-thumb {
-            -webkit-appearance: none;
-            background: #f00;
-            height: 20px;
-            width: 20px;
-            border-radius: 50%;
-          }
-          &::-ms-tooltip {
-            display: none;
-          }
-          &::-moz-range-track {
-            height: 0;
-          }
-          &::-moz-range-thumb {
-            background: #f00;
-            height: 20px;
-            width: 20px;
-            border: none;
-            border-radius: 50%;
-          }
-        }
-      }
-    }
-  }
-}
-.episodes {
-  display: flex;
-  flex-flow: column;
-  font-size: 1.5rem;
-  text-align: left;
-  padding-left: 56px;
-  padding-right: 50px;
-  padding-bottom: 80px;
-  margin-top: 50px;
-  @include mq(md) {
-    padding-left: 63px;
-    padding-right: 92px;
-  }
-  @include mq(lg) {
-    font-size: 1.7rem;
-    padding-left: 116px;
-    padding-right: 147px;
-  }
-  @include mq(xl) {
-    padding-left: 205px;
-    padding-right: 234px;
-    font-size: 2rem;
-  }
-  & .episode-content {
-    display: flex;
-    flex-direction: column;
-    background-color: black;
-    border: 1px $gold solid;
-    min-height: 11rem;
-    &.title-above-29 {
-      & .episode {
-        align-items: normal;
-        gap: 0 10px;
-      }
-    }
-    &.double-digit-episode {
-      & .episode {
-        gap: 0 9%;
-      }
-    }
-    & a {
-      text-decoration: none;
-      color: $gold;
-      & .episode {
-        display: flex;
-        gap: 0 12%;
-        padding: 5px 0 0 26px;
-        & .episode-number {
-          flex-shrink: 0;
-        }
-        & .episode-title {
-          flex-shrink: 1;
-        }
-      }
-    }
-  }
-}
-.episode-rate-form {
+.work-rate-form {
   display: flex;
   flex-direction: column;
   width: 80%;
-  min-height: 33rem;
+  max-width: 46rem;
+  min-height: 27rem;
   gap: 10px 0;
   border: 1px $gold solid;
   border-radius: 35px;
@@ -168,20 +58,15 @@
   margin: 45px auto;
   color: $gold;
   font-size: 1.3rem;
-  & .episode-rate-field {
+  & .work-rate-field {
     display: flex;
     flex-direction: column;
     width: 80%;
     gap: 5px 0;
-    & .episode-rate-item {
+    & .work-rate-item {
       width: 100%;
       position: relative;
-      & .score {
-        position: absolute;
-        top: 0;
-        left: 0;
-      }
-      & .episode-range {
+      & .work-range {
         width: 72%;
         appearance: none;
         height: 6px;
@@ -209,6 +94,145 @@
           border: none;
           border-radius: 50%;
         }
+      }
+    }
+  }
+}
+
+.episodes {
+  display: flex;
+  flex-flow: column;
+  font-size: 1.5rem;
+  text-align: left;
+  padding-left: 56px;
+  padding-right: 50px;
+  padding-bottom: 80px;
+  margin-top: 50px;
+  @include mq(md) {
+    padding-left: 63px;
+    padding-right: 92px;
+  }
+  @include mq(lg) {
+    font-size: 1.7rem;
+    padding-left: 116px;
+    padding-right: 147px;
+  }
+  @include mq(xl) {
+    padding-left: 205px;
+    padding-right: 234px;
+  }
+  & .episode-content {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    background-color: black;
+    border: 1px $gold solid;
+    &.double-digit-episode {
+      & .episode {
+        gap: 0 9%;
+      }
+    }
+    &.close {
+      height: 6rem;
+      &.title-above-29 {
+        height: 11rem;
+        @include mq(lg) {
+          height: 7rem;
+        }
+        & .episode {
+          align-items: normal;
+          gap: 0 10px;
+        }
+      }
+    }
+    &.open {
+      height: 47rem;
+      @include mq(md) {
+        height: 44rem;
+      }
+      & .episode-rate-form {
+        position: absolute;
+        top: 18%;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 45;
+        display: flex;
+        flex-direction: column;
+        width: 80%;
+        max-width: 30rem;
+        min-height: 33rem;
+        gap: 10px 0;
+        border: 1px $gold solid;
+        border-radius: 35px;
+        justify-content: center;
+        align-items: center;
+        align-items: center;
+        margin: 45px auto;
+        color: $gold;
+        font-size: 1.3rem;
+        @include mq(md) {
+          top: 11%;
+        }
+        & .episode-rate-field {
+          display: flex;
+          flex-direction: column;
+          width: 80%;
+          gap: 5px 0;
+          & .episode-rate-item {
+            width: 100%;
+            position: relative;
+            & .score {
+              position: absolute;
+              top: 0;
+              left: 0;
+            }
+            & .episode-range {
+              width: 72%;
+              appearance: none;
+              height: 6px;
+              border-radius: 8px;
+              @include mq(lg) {
+                width: 84%;
+              }
+              &::-webkit-slider-thumb {
+                -webkit-appearance: none;
+                background: #f00;
+                height: 20px;
+                width: 20px;
+                border-radius: 50%;
+              }
+              &::-ms-tooltip {
+                display: none;
+              }
+              &::-moz-range-track {
+                height: 0;
+              }
+              &::-moz-range-thumb {
+                background: #f00;
+                height: 20px;
+                width: 20px;
+                border: none;
+                border-radius: 50%;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  & .episode-link {
+    text-decoration: none;
+    color: $gold;
+    height: 100%;
+    & .episode {
+      display: flex;
+      gap: 0 12%;
+      padding: 5px 0 0 26px;
+      & .episode-number {
+        flex-shrink: 0;
+      }
+      & .episode-title {
+        flex-shrink: 1;
       }
     }
   }
