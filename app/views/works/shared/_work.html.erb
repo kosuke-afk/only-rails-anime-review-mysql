@@ -14,5 +14,12 @@
         </div>
       <% end %>
     </div>
+    <div class="work-information">
+      <p class="work-release"><%= work.release.year %>年<%= work.release.season %></p>
+      <p class="work-media"><%= work.media %></p>
+      <% if work.media != "映画" && work.episode_count != 0 %>
+        <p class="work-episode-count">全<%= work.episode_count %>話</p>
+      <% end %>
+    </div>
   </div>
 <% end %>
