@@ -41,6 +41,12 @@ header {
     justify-content: space-between;
     gap: 0 2rem;
     margin-right: 2rem;
+    & .header-link {
+      display: none;
+      @include mq(lg) {
+        display: inline-block;
+      }
+    }
     & .humberger {
       @include mq(lg) {
         display: none;

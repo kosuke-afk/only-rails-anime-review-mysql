@@ -35,29 +35,7 @@
           </div>
         <%= render "shared/footer" %>
       </div>
-      <% if logged_in? %>
-        <nav class="mobile-menu">
-            <div class="mobile-menu__logo">
-              <div class="mobile-menu__title font-cool">
-                Anime&ensp;Review
-              </div>
-            </div>
-            <ul class="mobile-menu__main">
-              <li class="mobile-menu__list">
-                <%= link_to "作品一覧", works_path, class: "mobile-menu__link" %>
-              </li>
-              <li class="mobile-menu__list">
-                <%= link_to "Myページ", "#", class: "mobile-menu__link" %>
-              </li>
-              <li class="mobile-menu__list">
-                <%= link_to "ユーザー情報", edit_user_path(@current_user), class: "mobile-menu__link" %>
-              </li>
-              <li class="mobile-menu__list">
-                <%= link_to "ログアウト", session_logout_path, data: {turbo_method: "delete"},class: "mobile-menu__link" %>
-              </li>
-            </ul>
-        </nav>
-      <% end %>
+      <%= render "shared/mobile_menu" %>
     </div>
   </body>
 </html>
