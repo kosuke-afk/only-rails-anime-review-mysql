@@ -18,7 +18,7 @@ class SessionController < ApplicationController
     if logged_in?
       log_out
       flash[:success] = "ログアウトしました"
-      redirect_to root_path, status: :see_other
+      redirect_to root_path, status: 303
     end
   end
   
