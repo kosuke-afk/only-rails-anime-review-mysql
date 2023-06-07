@@ -1,9 +1,9 @@
-<%= form_with model: work_rate, id: "work-rate-form", class: "work-rate-form" do |form| %>
+<%= form_with model: work_rate, url: "#", id: "work-rate-form", class: "work-rate-form" do |form| %>
     <div class="work-rate-field">
         <%= form.label :impressed, class: "work-rate-label" %>
         <div class="work-rate-item" data-controller="rate-range">
             <span class="min-value">0</span>
-            <%= form.range_field :impressed, in: 0..100, disabled: true, data: {rate_range_target: "range"}, class: "work-range" %>
+            <%= form.range_field :impressed, in: 0..100, step: "0.1", disabled: true, data: {rate_range_target: "range"}, class: "work-range" %>
             <span class="max-value" data-rate-range-target="score"></span>
         </div>
     </div>
@@ -11,7 +11,7 @@
         <%= form.label :comedy, class: "work-rate-label" %>
         <div class="work-rate-item" data-controller="rate-range">
             <span class="min-value">0</span>
-            <%= form.range_field :comedy, in: 0..100, disabled: true, data: {rate_range_target: "range"}, class: "work-range"%>
+            <%= form.range_field :comedy, in: 0..100, step: "0.1", disabled: true, data: {rate_range_target: "range"}, class: "work-range"%>
             <span class="max-value" data-rate-range-target="score"></span>
         </div>
     </div>
@@ -19,7 +19,7 @@
         <%= form.label :love, class: "work-rate-label" %>
         <div class="work-rate-item" data-controller="rate-range">
             <span class="min-value">0</span>
-            <%= form.range_field :love, in: 0..100, disabled: true,data: {rate_range_target: "range"},  class: "work-range"%>
+            <%= form.range_field :love, in: 0..100, step: "0.1", disabled: true,data: {rate_range_target: "range"},  class: "work-range"%>
             <span class="max-value" data-rate-range-target="score"></span>
         </div>
     </div>
@@ -27,7 +27,7 @@
         <%= form.label :excitement, class: "work-rate-label" %>
         <div class="work-rate-item" data-controller="rate-range">
             <span class="min-value">0</span>
-            <%= form.range_field :excitement, in: 0..100, disabled: true, data: {rate_range_target: "range"}, class: "work-range" %>
+            <%= form.range_field :excitement, in: 0..100, step: "0.1", disabled: true, data: {rate_range_target: "range"}, class: "work-range" %>
             <span class="max-value" data-rate-range-target="score"></span>
         </div>
     </div>
@@ -35,7 +35,7 @@
         <%= form.label :deep, class: "epsode-rate-label" %>
         <div class="work-rate-item" data-controller="rate-range">
             <span class="min-value">0</span>
-            <%= form.range_field :deep, in: 0..100, disabled: true, data: {rate_range_target: "range"}, class: "work-range"%>
+            <%= form.range_field :deep, in: 0..100, step: "0.1", disabled: true, data: {rate_range_target: "range"}, class: "work-range"%>
             <span class="max-value" data-rate-range-target="score"></span>
         </div>
     </div>

@@ -31,19 +31,29 @@ class EpisodeRatesController < ApplicationController
       excitement: epParams[:excitement], 
       deep: epParams[:deep]
     )
-    impressed_average = EpisodeRate.where(user_id: user_id,work_id: work_id).average("impressed")
-    comedy_average = EpisodeRate.where(user_id: user_id,work_id: work_id).average("comedy")
-    love_average = EpisodeRate.where(user_id: user_id,work_id: work_id).average("love")
-    excitement_average = EpisodeRate.where(user_id: user_id,work_id: work_id).average("excitement")
-    deep_average = EpisodeRate.where(user_id: user_id,work_id: work_id).average("deep")
+    episode_rates = EpisodeRate.where(user_id: user_id,work_id: work_id).where.not(impressed: 0,comedy: 0, love: 0, excitement: 0, deep: 0)
     @work_rate = WorkRate.find_by(user_id: user_id, work_id: work_id)
-    @work_rate.update(
-      impressed: impressed_average,
-      comedy: comedy_average,
-      love: love_average,
-      excitement: excitement_average,
-      deep: deep_average
-    )
+    total_rate = total_rate(@work_rate)
+    if episode_rates.count <= 1
+      @work_rate.update(
+        impressed: epParams[:impressed],
+        comedy: epParams[:comedy],
+        love: epParams[:love],
+        excitement: epParams[:excitement],
+        deep: epParams[:deep],
+        total: total_rate
+      )
+    else
+      average = rate_averages(episode_rates)
+      @work_rate.update(
+        impressed: average[:impressed],
+        comedy: average[:comedy],
+        love: average[:love],
+        excitement: average[:excitement],
+        deep: average[:deep],
+        total: total_rate
+      )
+    end
     render turbo_stream: [
       turbo_stream.replace("episode-rate-form",partial: "shared/episode_rate_form",locals: {work: @work, episode: @episode, episode_rate: @episode_rate}),
       turbo_stream.replace("work-rate-form", partial: "works/shared/work_rates", locals: {work_rate: @work_rate})

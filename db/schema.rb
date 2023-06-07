@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_05_23_154347) do
+ActiveRecord::Schema[7.0].define(version: 2023_06_06_064207) do
   create_table "casts", charset: "utf8mb4", force: :cascade do |t|
     t.bigint "work_id", null: false
     t.string "character"
@@ -64,16 +64,17 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_23_154347) do
   end
 
   create_table "work_rates", charset: "utf8mb4", force: :cascade do |t|
-    t.integer "impressed"
-    t.integer "comedy"
-    t.integer "love"
-    t.integer "excitement"
-    t.integer "deep"
+    t.float "impressed"
+    t.float "comedy"
+    t.float "love"
+    t.float "excitement"
+    t.float "deep"
     t.integer "favorite_degree"
     t.bigint "user_id", null: false
     t.bigint "work_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.float "total"
     t.index ["user_id"], name: "index_work_rates_on_user_id"
     t.index ["work_id"], name: "index_work_rates_on_work_id"
   end
