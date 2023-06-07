@@ -1,0 +1,13 @@
+<div class="user-show">
+  <div class="total-works">
+      <div class="swiper mySwiper" data-controller="swiper">
+        <div class="swiper-wrapper">
+          <%= render partial: "users/shared/work_slide", collection: @work %>
+        </div>
+    </div>
+  </div>
+</div>
+<% content_for :css do %>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+  <%= stylesheet_link_tag "users/show" %>
+<% end %>

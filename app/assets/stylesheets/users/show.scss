@@ -1,0 +1,38 @@
+@use "../global/color" as *;
+@use "../global/mq" as *;
+.user-show {
+  @include mq(md) {
+    padding-top: 100px;
+  }
+}
+.total-works {
+  height: 28rem;
+  width: 100%;
+  background-color: black;
+  border-top: 1px solid $gold;
+}
+.swiper {
+  width: 100%;
+  position: relative;
+  @include mq(md) {
+    padding-top: 100px;
+  }
+}
+
+.swiper-slide {
+  background-position: center;
+  background-size: cover;
+  width: 300px;
+  height: 300px;
+}
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+}
+
+.bWhite {
+  background-color: white;
+  border: 1px solid black;
+  text-align: center;
+}
