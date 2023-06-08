@@ -5,6 +5,7 @@ class Work < ApplicationRecord
   has_many :episodes
   has_many :work_rates
   has_many :users, through: :work_rates
+  has_many :episode_rates
 
   
 

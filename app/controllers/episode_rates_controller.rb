@@ -44,7 +44,7 @@ class EpisodeRatesController < ApplicationController
         total: total_rate
       )
     else
-      average = rate_averages(episode_rates)
+      average = WorkRate.rate_averages(episode_rates)
       @work_rate.update(
         impressed: average[:impressed],
         comedy: average[:comedy],

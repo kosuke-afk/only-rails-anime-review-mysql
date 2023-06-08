@@ -6,16 +6,19 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 
-10.times do |n|
-  name = Faker::Name.name
-  email = "user-#{n+1}@gmail.com"
-  password ="password"
-  User.create!(name: name,
-               email: email, 
-               password: password,
-               password_confirmation: password)
-end
-releases = Release.register(2022,2023)
-Work.register_annict_data(releases)
-Cast.all_register
-Episode.all_register
+# 10.times do |n|
+#   name = Faker::Name.name
+#   email = "user-#{n+1}@gmail.com"
+#   password ="password"
+#   User.create!(name: name,
+#                email: email, 
+#                password: password,
+#                password_confirmation: password)
+# end
+# releases = Release.register(2022,2023)
+# Work.register_annict_data(releases)
+# Cast.all_register
+# Episode.all_register
+
+  
+
