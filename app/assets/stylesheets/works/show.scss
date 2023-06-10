@@ -6,17 +6,16 @@
     height: 100%;
     & .image {
       width: 100%;
-      height: auto;
-      min-height: 19rem;
-      max-height: 26rem;
+      height: 16rem;
       vertical-align: bottom;
+      @include mq(md) {
+        height: 23rem;
+      }
       @include mq(lg) {
-        min-height: 30rem;
-        max-height: 32rem;
+        height: 30rem;
       }
       @include mq(xl) {
-        min-height: 36rem;
-        max-height: 39rem;
+        height: 36rem;
       }
     }
   }
