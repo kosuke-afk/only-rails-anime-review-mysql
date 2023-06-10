@@ -105,11 +105,11 @@ header {
 }
 
 .content {
-  min-height: 40rem;
+  min-height: 60rem;
   background-color: red;
   position: relative;
   @include mq(lg) {
-    min-height: 50rem;
+    min-height: 60rem;
   }
 }
 

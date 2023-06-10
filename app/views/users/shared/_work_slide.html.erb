@@ -1,3 +1,10 @@
 <div class="swiper-slide">
-  <%= image_tag work.image.empty? ? "/assets/no_images.png" : work.image, class: "image" %>
+  <%= link_to work_path(work) do %>
+    <%= image_tag work.image.empty? ? "/assets/no_images.png" : work.image, class: "image" %>
+  <% end %>
+  <p class="work-information">
+    <span class="work-rank"><%= index %></span>
+    <span class="work-title"><%= work.title %></span>
+    <span class="work-score"><%= main ? "総合点" : "" %><%= work.score %></span>
+  </p>
 </div>

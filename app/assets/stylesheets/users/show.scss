@@ -1,38 +1,295 @@
 @use "../global/color" as *;
 @use "../global/mq" as *;
 .user-show {
-  @include mq(md) {
-    padding-top: 100px;
+  padding-top: 100px;
+  padding-bottom: 150px;
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+  & .total-works {
+    position: relative;
+    height: 32rem;
+    width: 100%;
+    background-color: black;
+    border-top: 1px solid $gold;
+    @include mq(md) {
+      height: 45rem;
+    }
+    & .total-title {
+      font-size: 1.2rem;
+      color: #dbdb73;
+      margin-top: 20px;
+      margin-bottom: 25px;
+      margin-left: 15px;
+      @include mq(md) {
+        margin-top: 40px;
+        font-size: 1.4rem;
+      }
+      @include mq(lg) {
+        font-size: 1.6rem;
+      }
+    }
+    & .index-link {
+      position: absolute;
+      bottom: 20px;
+      right: 20px;
+      z-index: 3;
+      @include mq(md) {
+        font-size: 1.3rem;
+        margin-right: 25px;
+      }
+      & .link {
+        text-decoration: none;
+        color: $gold;
+        &:hover {
+          opacity: 0.6;
+        }
+      }
+    }
   }
-}
-.total-works {
-  height: 28rem;
-  width: 100%;
-  background-color: black;
-  border-top: 1px solid $gold;
-}
-.swiper {
-  width: 100%;
-  position: relative;
-  @include mq(md) {
-    padding-top: 100px;
+
+  & .impressed-works {
+    position: relative;
+    height: 32rem;
+    width: 100%;
+    background-color: black;
+    border-top: 1px solid $gold;
+    @include mq(md) {
+      height: 45rem;
+    }
+    & .impressed-title {
+      font-size: 1.2rem;
+      color: #dbdb73;
+      margin-top: 20px;
+      margin-bottom: 25px;
+      margin-left: 15px;
+      @include mq(md) {
+        margin-top: 40px;
+        font-size: 1.4rem;
+      }
+      @include mq(lg) {
+        font-size: 1.6rem;
+      }
+    }
+    & .index-link {
+      position: absolute;
+      bottom: 20px;
+      right: 20px;
+      z-index: 100;
+      @include mq(md) {
+        font-size: 1.3rem;
+        margin-right: 25px;
+      }
+      & .link {
+        text-decoration: none;
+        color: $gold;
+        &:hover {
+          opacity: 0.6;
+        }
+      }
+    }
   }
-}
 
-.swiper-slide {
-  background-position: center;
-  background-size: cover;
-  width: 300px;
-  height: 300px;
-}
+  & .love-works {
+    position: relative;
+    height: 32rem;
+    width: 100%;
+    background-color: black;
+    border-top: 1px solid $gold;
+    @include mq(md) {
+      height: 45rem;
+    }
+    & .love-title {
+      font-size: 1.2rem;
+      color: #dbdb73;
+      margin-top: 20px;
+      margin-bottom: 25px;
+      margin-left: 15px;
+      @include mq(md) {
+        margin-top: 40px;
+        font-size: 1.4rem;
+      }
+      @include mq(lg) {
+        font-size: 1.6rem;
+      }
+    }
+    & .index-link {
+      position: absolute;
+      bottom: 20px;
+      right: 20px;
+      z-index: 3;
+      @include mq(md) {
+        font-size: 1.3rem;
+        margin-right: 25px;
+      }
+      & .link {
+        text-decoration: none;
+        color: $gold;
+        &:hover {
+          opacity: 0.6;
+        }
+      }
+    }
+  }
 
-.swiper-slide img {
-  display: block;
-  width: 100%;
-}
+  & .comedy-works {
+    position: relative;
+    height: 32rem;
+    width: 100%;
+    background-color: black;
+    border-top: 1px solid $gold;
+    @include mq(md) {
+      height: 45rem;
+    }
+    & .comedy-title {
+      font-size: 1.2rem;
+      color: #dbdb73;
+      margin-top: 20px;
+      margin-bottom: 25px;
+      margin-left: 15px;
+      @include mq(md) {
+        margin-top: 40px;
+        font-size: 1.4rem;
+      }
+      @include mq(lg) {
+        font-size: 1.6rem;
+      }
+    }
+    & .index-link {
+      position: absolute;
+      bottom: 20px;
+      right: 20px;
+      z-index: 100;
+      @include mq(md) {
+        font-size: 1.3rem;
+        margin-right: 25px;
+      }
+      & .link {
+        text-decoration: none;
+        color: $gold;
+        &:hover {
+          opacity: 0.6;
+        }
+      }
+    }
+  }
 
-.bWhite {
-  background-color: white;
-  border: 1px solid black;
-  text-align: center;
+  & .excitement-works {
+    position: relative;
+    height: 32rem;
+    width: 100%;
+    background-color: black;
+    border-top: 1px solid $gold;
+    @include mq(md) {
+      height: 45rem;
+    }
+    & .excitement-title {
+      font-size: 1.2rem;
+      color: #dbdb73;
+      margin-top: 20px;
+      margin-bottom: 25px;
+      margin-left: 15px;
+      @include mq(md) {
+        margin-top: 40px;
+        font-size: 1.4rem;
+      }
+      @include mq(lg) {
+        font-size: 1.6rem;
+      }
+    }
+    & .index-link {
+      position: absolute;
+      bottom: 20px;
+      right: 20px;
+      z-index: 100;
+      @include mq(md) {
+        font-size: 1.3rem;
+        margin-right: 25px;
+      }
+      & .link {
+        text-decoration: none;
+        color: $gold;
+        &:hover {
+          opacity: 0.6;
+        }
+      }
+    }
+  }
+
+  & .deep-works {
+    position: relative;
+    height: 32rem;
+    width: 100%;
+    background-color: black;
+    border-top: 1px solid $gold;
+    @include mq(md) {
+      height: 45rem;
+    }
+    & .deep-title {
+      font-size: 1.2rem;
+      color: #dbdb73;
+      margin-top: 20px;
+      margin-bottom: 25px;
+      margin-left: 15px;
+      @include mq(md) {
+        margin-top: 40px;
+        font-size: 1.4rem;
+      }
+      @include mq(lg) {
+        font-size: 1.6rem;
+      }
+    }
+    & .index-link {
+      position: absolute;
+      bottom: 20px;
+      right: 20px;
+      z-index: 3;
+      @include mq(md) {
+        font-size: 1.3rem;
+        margin-right: 25px;
+      }
+      & .link {
+        text-decoration: none;
+        color: $gold;
+        &:hover {
+          opacity: 0.6;
+        }
+      }
+    }
+  }
+  & .swiper {
+    width: 100%;
+    position: relative;
+    @include mq(md) {
+      padding-top: 60px;
+    }
+    & .swiper-slide {
+      background-position: center;
+      background-size: cover;
+      width: 100%;
+      height: 500px;
+      & .work-information {
+        position: relative;
+        z-index: 3;
+        font-size: 1.2rem;
+        color: $gold;
+        padding: 20px 0 0 16px;
+        & .work-score {
+          display: block;
+          margin-top: 10px;
+        }
+      }
+      & .image {
+        display: block;
+        width: 100%;
+        height: 262px;
+        @include mq(md) {
+          height: 393px;
+        }
+        @include mq(lg) {
+          height: 250px;
+        }
+      }
+    }
+  }
 }
