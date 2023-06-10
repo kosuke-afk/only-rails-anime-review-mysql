@@ -5,7 +5,7 @@
   <div id="right-menu">
     <% if logged_in? %>
       <%= link_to "作品一覧", works_path, class: "header-link" %>
-      <%= link_to "Myページ", user_path(@current_user), class: "header-link" %>    
+      <%= link_to "Myランキング", user_path(@current_user), class: "header-link" %>    
       <%= link_to "ユーザー情報", edit_user_path(@current_user), class: "header-link" %>
       <%= link_to "ログアウト", session_logout_path, data: {turbo_method: "delete"}, class: "header-link" %>
       <button class="humberger" data-controller="mobile-menu">
