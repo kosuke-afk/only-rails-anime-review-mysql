@@ -4,12 +4,12 @@
     <div class="swiper total-swiper">
       <div class="swiper-wrapper">
         <% @total_works.each_with_index do |work,index| %>
-          <%= render partial: "users/shared/work_slide", locals: {work: work, index: "#{index + 1}", main: true}  %>
+          <%= render partial: "shared/work_slide", locals: {work: work, index: "#{index + 1}", main: true}  %>
         <% end %>
       </div>
     </div>
     <p class="index-link">
-      <%= link_to "ランキング一覧へ", "#", class: "link"%>
+      <%= link_to "ランキング一覧へ", user_work_rates_path(current_user,ranking: "total"), class: "link"%>
     </p>
   </div>
   <div class="impressed-works">
@@ -17,12 +17,12 @@
     <div class="swiper impressed-swiper">
       <div class="swiper-wrapper">
         <%@impressed_works.each_with_index do |work,index| %>
-          <%= render partial: "users/shared/work_slide", locals: {work: work, index: index + 1, main: false}%>
+          <%= render partial: "shared/work_slide", locals: {work: work, index: index + 1, main: false}%>
         <% end %>
       </div>
     </div>
     <p class="index-link">
-      <%= link_to "ランキング一覧へ", "#", class: "link"%>
+      <%= link_to "ランキング一覧へ", user_work_rates_path(current_user,ranking: "impressed"), class: "link"%>
     </p>
   </div>
   <div class="love-works">
@@ -30,12 +30,12 @@
     <div class="swiper love-swiper">
       <div class="swiper-wrapper">
         <%@love_works.each_with_index do |work,index| %>
-          <%= render partial: "users/shared/work_slide", locals: {work: work, index: index + 1, main: false}%>
+          <%= render partial: "shared/work_slide", locals: {work: work, index: index + 1, main: false}%>
         <% end %>
       </div>
     </div>
     <p class="index-link">
-      <%= link_to "ランキング一覧へ", "#", class: "link"%>
+      <%= link_to "ランキング一覧へ", user_work_rates_path(current_user,ranking: "love"), class: "link"%>
     </p>
   </div>
   <div class="comedy-works">
@@ -43,12 +43,12 @@
     <div class="swiper comedy-swiper">
       <div class="swiper-wrapper">
         <%@comedy_works.each_with_index do |work,index| %>
-          <%= render partial: "users/shared/work_slide", locals: {work: work, index: index + 1, main: false}%>
+          <%= render partial: "shared/work_slide", locals: {work: work, index: index + 1, main: false}%>
         <% end %>
       </div>
     </div>
     <p class="index-link">
-      <%= link_to "ランキング一覧へ", "#", class: "link"%>
+      <%= link_to "ランキング一覧へ",user_work_rates_path(current_user,ranking: "comedy"), class: "link"%>
     </p>
   </div>
   <div class="excitement-works">
@@ -56,12 +56,12 @@
     <div class="swiper excitement-swiper">
       <div class="swiper-wrapper">
         <%@excitement_works.each_with_index do |work,index| %>
-          <%= render partial: "users/shared/work_slide", locals: {work: work, index: index + 1, main: false}%>
+          <%= render partial: "shared/work_slide", locals: {work: work, index: index + 1, main: false}%>
         <% end %>
       </div>
     </div>
     <p class="index-link">
-      <%= link_to "ランキング一覧へ", "#", class: "link"%>
+      <%= link_to "ランキング一覧へ",user_work_rates_path(current_user, ranking: "excitement"), class: "link"%>
     </p>
   </div>
   <div class="deep-works">
@@ -69,19 +69,18 @@
     <div class="swiper deep-swiper">
       <div class="swiper-wrapper">
         <%@deep_works.each_with_index do |work,index| %>
-          <%= render partial: "users/shared/work_slide", locals: {work: work, index: index + 1, main: false}%>
+          <%= render partial: "shared/work_slide", locals: {work: work, index: index + 1, main: false}%>
         <% end %>
       </div>
     </div>
     <p class="index-link">
-      <%= link_to "ランキング一覧へ", "#", class: "link"%>
+      <%= link_to "ランキング一覧へ", user_work_rates_path(current_user, ranking: "deep"), class: "link"%>
     </p>
   </div>
 </div>
 <% content_for :css do %>
-  <meta name="turbo-visit-control" content="reload">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
-  <%= stylesheet_link_tag "users/show", data: {turbo_track: "reload"} %>
+  <%= stylesheet_link_tag "users/show" %>
 <% end %>
 <% content_for :js do %>
   <%= javascript_import_module_tag "users/show" %>
