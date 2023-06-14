@@ -1,6 +1,8 @@
 class WorksController < ApplicationController
 
   before_action :set_q, only: [:index,:search]
+  before_action :reset_session_ranking, only: [:index,:show]
+  before_action :reset_work_count, only: [:index, :show]
   def show
     @work = Work.find(params[:id])
     @episodes = @work.episodes.order(sort_number: :asc)
@@ -18,7 +20,7 @@ class WorksController < ApplicationController
   def index
     @years = Release.select(:year).distinct
     @seasons = Release.select(:season).distinct
-    @works = Work.all.includes(:casts).page(params[:page]);
+    @works = Work.all.page(params[:page])
   end
 
   def search

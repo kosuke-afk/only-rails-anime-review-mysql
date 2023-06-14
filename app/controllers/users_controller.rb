@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
 
+  before_action :reset_session_ranking, only: [:show,:edit]
+  before_action :reset_work_count, only: [:show,:edit]
   def show
     @total_works = Work.joins(:work_rates).select('works.annict_id, works.title, works.image, work_rates.total AS score').where('work_rates.user_id=? AND work_rates.total Is NOT NULL',current_user.id).order('work_rates.total DESC').limit(10)
     @impressed_works = Work.joins(:work_rates).select('works.annict_id, works.title, works.image, work_rates.impressed AS score').where('work_rates.user_id=?', current_user.id).order('work_rates.impressed DESC').limit(10)

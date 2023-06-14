@@ -1,4 +1,5 @@
 class EpisodeRatesController < ApplicationController
+  
   include EpisodeRateHelper
 
   def edit_open
@@ -56,7 +57,7 @@ class EpisodeRatesController < ApplicationController
     end
     render turbo_stream: [
       turbo_stream.replace("episode-rate-form",partial: "shared/episode_rate_form",locals: {work: @work, episode: @episode, episode_rate: @episode_rate}),
-      turbo_stream.replace("work-rate-form", partial: "works/shared/work_rates", locals: {work_rate: @work_rate})
+      turbo_stream.replace("work-rate-form", partial: "shared/work_rates", locals: {work_rate: @work_rate})
     ], status: :unprocessable_entity
   end
 

@@ -1,4 +1,7 @@
 class HomeController < ApplicationController
+
+  before_action :reset_session_ranking, only: [:top]
+  before_action :reset_work_count, only: [:top]
   def top
   end
 

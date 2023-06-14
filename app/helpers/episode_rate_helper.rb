@@ -1,6 +1,6 @@
 module EpisodeRateHelper
 
-  def total_rate (work_rate)
-    total = work_rate.impressed + work_rate.comedy + work_rate.love + work_rate.excitement + work_rate.deep 
+  def total_rate (rate)
+    total = rate.impressed + rate.comedy + rate.love + rate.excitement + rate.deep 
   end
 end
