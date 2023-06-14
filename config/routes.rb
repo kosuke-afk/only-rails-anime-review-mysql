@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   post 'session/login'
   delete 'session/logout'
   resources :users, only: [:show,:edit,:create] do
+    resources :work_rates, only: [:index, :edit]
     member do
       get ":work_id/episodes/:episode_id/open", to: "episode_rates#edit_open", as: "open_episode_rate"
       get ":work_id/episodes/:episode_id/close", to: "episode_rates#edit_close", as: "close_episode_rate"
