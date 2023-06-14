@@ -1,0 +1,91 @@
+<% if ranking === "total" %>
+  <div class="rate-items">
+    <p class="impressed-score">感動</p>
+    <p class="love-score">恋愛</p>
+    <p class="comedy-score">笑い</p>
+    <p class="excitement-score">興奮</p>
+    <p class="deep-score">ストーリー</p>
+  </div>
+  <div class="rate-scores">
+    <p class="rate-score"><%= check_zero_whether_first_decimal(rate.impressed) ? rate.impressed.floor : rate.impressed.floor(1) %>点</p>
+    <p class="rate-score"><%= check_zero_whether_first_decimal(rate.love) ? rate.love.floor : rate.love.floor(1) %>点</p>
+    <p class="rate-score"><%= check_zero_whether_first_decimal(rate.comedy) ? rate.comedy.floor : rate.comedy.floor(1) %>点</p>
+    <p class="rate-score"><%= check_zero_whether_first_decimal(rate.excitement) ? rate.excitement.floor : rate.excitement.floor(1) %>点</p>
+    <p class="rate-score"><%= check_zero_whether_first_decimal(rate.deep) ? rate.deep.floor : rate.deep.floor(1) %>点</p>
+  </div>
+<% elsif ranking === "impressed" %>
+  <div class="rate-items">
+    <p class="deep-score">総合</p>
+    <p class="impressed-score">恋愛</p>
+    <p class="love-score">笑い</p>
+    <p class="comedy-score">興奮</p>
+    <p class="excitement-score">ストーリー</p>
+  </div>
+  <div class="rate-scores">
+     <p class="rate-score"><%= check_zero_whether_first_decimal(rate.total) ? rate.total.floor : rate.total.floor(1) %>点</p>
+    <p class="rate-score"><%= check_zero_whether_first_decimal(rate.love) ? rate.love.floor : rate.love.floor(1) %>点</p>
+    <p class="rate-score"><%= check_zero_whether_first_decimal(rate.comedy) ? rate.comedy.floor : rate.comedy.floor(1) %>点</p>
+    <p class="rate-score"><%= check_zero_whether_first_decimal(rate.excitement) ? rate.excitement.floor : rate.excitement.floor(1) %>点</p>
+    <p class="rate-score"><%= check_zero_whether_first_decimal(rate.deep) ? rate.deep.floor : rate.deep.floor(1) %>点</p>
+  </div>
+<% elsif ranking === "love" %>
+  <div class="rate-items">
+    <p class="impressed-score">総合</p>
+    <p class="love-score">感動
+    <p class="comedy-score">笑い</p>
+    <p class="excitement-score">興奮</p>
+    <p class="deep-score">ストーリー</p>
+  </div>
+  <div class="rate-scores">
+     <p class="rate-score"><%= check_zero_whether_first_decimal(rate.total) ? rate.total.floor : rate.total.floor(1) %>点</p>
+    <p class="rate-score"><%= check_zero_whether_first_decimal(rate.impressed) ? rate.impressed.floor : rate.impressed.floor(1) %>点</p>
+    <p class="rate-score"><%= check_zero_whether_first_decimal(rate.comedy) ? rate.comedy.floor : rate.comedy.floor(1) %>点</p>
+    <p class="rate-score"><%= check_zero_whether_first_decimal(rate.excitement) ? rate.excitement.floor : rate.excitement.floor(1) %>点</p>
+    <p class="rate-score"><%= check_zero_whether_first_decimal(rate.deep) ? rate.deep.floor : rate.deep.floor(1) %>点</p>
+  </div>
+<% elsif ranking === "comedy"%>
+  <div class="rate-items">
+    <p class="comedy-score">総合</p>
+    <p class="impressed-score">感動</p>
+    <p class="love-score">恋愛</p>
+    <p class="excitement-score">興奮</p>
+    <p class="deep-score">ストーリー</p>
+  </div>
+  <div class="rate-scores">
+     <p class="rate-score"><%= check_zero_whether_first_decimal(rate.total) ? rate.total.floor : rate.total.floor(1) %>点</p>
+    <p class="rate-score"><%= check_zero_whether_first_decimal(rate.impressed) ? rate.impressed.floor : rate.impressed.floor(1) %>点</p>
+    <p class="rate-score"><%= check_zero_whether_first_decimal(rate.love) ? rate.love.floor : rate.love.floor(1) %>点</p>
+    <p class="rate-score"><%= check_zero_whether_first_decimal(rate.excitement) ? rate.excitement.floor : rate.excitement.floor(1) %>点</p>
+    <p class="rate-score"><%= check_zero_whether_first_decimal(rate.deep) ? rate.deep.floor : rate.deep.floor(1) %>点</p>
+  </div>
+<% elsif ranking === "excitement"%>
+  <div class="rate-items">
+    <p class="excitement-score">総合</p>
+    <p class="impressed-score">感動</p>
+    <p class="love-score">恋愛</p>
+    <p class="comedy-score">笑い</p>
+    <p class="deep-score">ストーリー</p>
+  </div>
+  <div class="rate-scores">
+    <p class="rate-score"><%= check_zero_whether_first_decimal(rate.total) ? rate.total.floor : rate.total.floor(1) %>点</p>
+    <p class="rate-score"><%= check_zero_whether_first_decimal(rate.impressed) ? rate.impressed.floor : rate.impressed.floor(1) %>点</p>
+    <p class="rate-score"><%= check_zero_whether_first_decimal(rate.love) ? rate.love.floor : rate.love.floor(1) %>点</p>
+    <p class="rate-score"><%= check_zero_whether_first_decimal(rate.comedy) ? rate.comedy.floor : rate.comedy.floor(1) %>点</p>
+    <p class="rate-score"><%= check_zero_whether_first_decimal(rate.deep) ? rate.deep.floor : rate.deep.floor(1) %>点</p>
+  </div>
+<% elsif ranking === "deep" %>
+  <div class="rate-items">
+    <p class="deep-score">総合</p>
+    <p class="impressed-score">感動</p>
+    <p class="love-score">恋愛</p>
+    <p class="comedy-score">笑い</p>
+    <p class="excitement-score">興奮</p>
+  </div>
+  <div class="rate-scores">
+    <p class="rate-score"><%= check_zero_whether_first_decimal(rate.total) ? rate.total.floor : rate.total.floor(1) %>点</p>
+    <p class="rate-score"><%= check_zero_whether_first_decimal(rate.impressed) ? rate.impressed.floor : rate.impressed.floor(1) %>点</p>
+    <p class="rate-score"><%= check_zero_whether_first_decimal(rate.love) ? rate.love.floor : rate.love.floor(1) %>点</p>
+    <p class="rate-score"><%= check_zero_whether_first_decimal(rate.comedy) ? rate.comedy.floor : rate.comedy.floor(1) %>点</p>
+    <p class="rate-score"><%= check_zero_whether_first_decimal(rate.excitement) ? rate.excitement.floor : rate.excitement.floor(1) %>点</p>
+  </div>
+<% end %>

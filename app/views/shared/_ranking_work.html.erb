@@ -1,0 +1,14 @@
+<div class="work">
+    <div class="work-main">
+      <div class="work-rank">
+        <%= render partial: "shared/rate_title", locals: { ranking: @ranking,index: index,rate: work} %>
+      </div>
+      <%= link_to work_path(work.annict_id), class: "work-image-link" do %>
+        <%= image_tag work.image.empty? ? "/assets/no_images.png" : work.image, class: "work-image" %>
+      <% end %>
+      <h1 class="work-title"><%= work.title %></h1>
+    </div>
+    <div class="work-score">
+      <%= render partial: "shared/rate_list", locals: { ranking: @ranking,index: index,rate: work} %>
+    </div>
+</div>

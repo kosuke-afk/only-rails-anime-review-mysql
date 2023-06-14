@@ -1,0 +1,19 @@
+<% if ranking === "total" %>
+  <p class="rank">総合<%= index %>位</>
+  <p class="rank-score"><%= check_zero_whether_first_decimal(rate.total) ? rate.total.floor : rate.total.floor(1) %>点</p>
+<% elsif ranking === "impressed"%>
+  <p class="rank">感動<%= index %>位</>
+  <p class="rank-score"><p class="rate-score"><%= check_zero_whether_first_decimal(rate.impressed) ? rate.impressed.floor : rate.impressed.floor(1) %></p>点</p>
+<% elsif ranking === "love"%>
+  <p class="rank">恋愛<%= index %>位</>
+  <p class="rank-score"><%= check_zero_whether_first_decimal(rate.love) ? rate.love.floor : rate.love.floor(1) %>点</p>
+<% elsif ranking === "comedy"%>
+  <p class="rank">笑い<%= index %>位</>
+  <p class="rank-score"><%= check_zero_whether_first_decimal(rate.comedy) ? rate.comedy.floor : rate.comedy.floor(1) %>点</p>
+<% elsif ranking === "excitement"%>
+  <p class="rank">興奮<%= index %>位</>
+    <p class="rank-score"><%= check_zero_whether_first_decimal(rate.excitement) ? rate.excitement.floor : rate.excitement.floor(1) %>点</p>
+<% elsif ranking === "deep"%>
+  <p class="rank">ストーリー<%= index %>位</>
+  <p class="rank-score"><%= check_zero_whether_first_decimal(rate.deep) ? rate.deep.floor : rate.deep.floor(1) %>点</p>
+<% end %>
