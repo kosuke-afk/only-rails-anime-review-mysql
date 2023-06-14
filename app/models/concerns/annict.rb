@@ -18,7 +18,7 @@ module Annict
       base_url = "https://api.annict.com"
       access_token = ENV['ANNICT_ACCESS_TOKEN']
       title = URI.encode_www_form_component(title)
-      uri = "#{base_url}/v1/works?fields=title,media_text,images,season_name,episodes_count,id&filter_title=#{title}&access_token=#{access_token}"
+      uri = "#{base_url}/v1/works?fields=title,media_text,images,,no_episodes,season_name,episodes_count,id&filter_title=#{title}&access_token=#{access_token}"
       data = JSON.parse(Faraday.get(uri).body)["works"]
     end
     

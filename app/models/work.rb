@@ -7,7 +7,41 @@ class Work < ApplicationRecord
   has_many :users, through: :work_rates
   has_many :episode_rates
 
-  
+  def self.fetch_works_each_params(ranking,user_id)
+    case ranking
+    when "total"
+      return Work.joins(:work_rates).
+          select('works.annict_id, works.title, works.image, work_rates.total, work_rates.impressed, work_rates.love, work_rates.comedy, work_rates.excitement, work_rates.deep').
+          where('(work_rates.user_id = ?) AND (work_rates.total != 0 AND work_rates.total IS NOT NULL)', user_id).
+          order('work_rates.total DESC')
+    when "impressed"
+      return Work.joins(:work_rates).
+          select('works.annict_id, works.title, works.image, work_rates.total, work_rates.impressed, work_rates.love, work_rates.comedy, work_rates.excitement, work_rates.deep').
+          where('(work_rates.user_id = ?) AND work_rates.impressed != 0 OR work_rates.impressed IS NOT NULL', user_id).
+          order('work_rates.impressed DESC')
+    when "love"
+      return Work.joins(:work_rates).
+          select('works.annict_id, works.title, works.image, work_rates.total, work_rates.impressed, work_rates.love, work_rates.comedy, work_rates.excitement, work_rates.deep').
+          where('(work_rates.user_id = ?) AND work_rates.love != 0 OR work_rates.love IS NOT NULL', user_id).
+          order('work_rates.love DESC')
+    when "comedy"
+      return Work.joins(:work_rates).
+          select('works.annict_id, works.title, works.image, work_rates.total, work_rates.impressed, work_rates.love, work_rates.comedy, work_rates.excitement, work_rates.deep').
+          where('(work_rates.user_id = ?) AND work_rates.comedy != 0 OR work_rates.comedy IS NOT NULL', user_id).
+          order('work_rates.comedy DESC')
+    when "excitement"
+      return Work.joins(:work_rates).
+          select('works.annict_id, works.title, works.image, work_rates.total, work_rates.impressed, work_rates.love, work_rates.comedy, work_rates.excitement, work_rates.deep').
+          where('(work_rates.user_id = ?) AND work_rates.excitement != 0 OR work_rates.excitement IS NOT NULL', user_id).
+          order('work_rates.excitement DESC')
+    when "deep"
+      return Work.joins(:work_rates).
+          select('works.annict_id, works.title, works.image, work_rates.total, work_rates.impressed, work_rates.love, work_rates.comedy, work_rates.excitement, work_rates.deep').
+          where('(work_rates.user_id = ?) AND work_rates.deep != 0 OR work_rates.deep IS NOT NULL', user_id).
+          order('work_rates.deep DESC')
+    end
+  end
+
 
   def self.create_or_update(work:,release_id:)
      Work.find_or_initialize_by(title: work["title"]).update(
