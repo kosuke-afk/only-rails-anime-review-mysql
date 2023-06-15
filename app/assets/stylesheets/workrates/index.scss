@@ -1,0 +1,110 @@
+@use "../global/mq" as *;
+@use "../global/color" as *;
+
+.work-rate-index {
+  height: 100%;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  @include mq(lg) {
+    padding-top: 80px;
+  }
+  & .ranking-title {
+    display: flex;
+    align-items: center;
+    background-color: black;
+    color: $gold;
+    height: 6rem;
+    font-size: 1.5rem;
+    padding-left: 20px;
+    @include mq(lg) {
+      height: 9rem;
+      font-size: 1.7rem;
+    }
+  }
+  & .change-ranking {
+    display: flex;
+    margin: 50px 0;
+    width: 100%;
+    height: 4rem;
+    & .ranking-button {
+      text-decoration: none;
+      flex-grow: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: white;
+      color: black;
+      &.selected {
+        background-color: black;
+        color: $gold;
+      }
+    }
+  }
+  & .work {
+    display: flex;
+    background-color: #000;
+    color: #dbdb73;
+    min-height: 31rem;
+    flex-direction: column;
+    width: 80%;
+    margin: 0 auto 53px auto;
+    padding-top: 14px;
+    padding-bottom: 50px;
+    margin-bottom: 20px;
+    border-radius: 25px;
+    @include mq(md) {
+      max-width: 524px;
+    }
+    @include mq(xl) {
+      max-width: 630px;
+    }
+    & .work-main {
+      width: 85%;
+      margin: 0 auto;
+      & .work-rank {
+        display: flex;
+        font-size: 1.3rem;
+        gap: 10px;
+        padding-top: 15px;
+        padding-bottom: 10px;
+      }
+      & .work-image-link {
+        display: block;
+        width: 100%;
+        & .work-image {
+          width: 100%;
+          height: 190px;
+          @include mq(md) {
+            height: 235px;
+          }
+          @include mq(xl) {
+            height: 260px;
+          }
+        }
+      }
+      & .work-title {
+        padding-top: 10px;
+        font-size: 1.2rem;
+      }
+    }
+    & .work-score {
+      font-size: 1.4rem;
+      padding-top: 24px;
+      gap: 90px;
+      width: 85%;
+      margin: 0 auto;
+      display: flex;
+      padding-left: 10px;
+      & .rate-items {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+      & .rate-scores {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+    }
+  }
+}

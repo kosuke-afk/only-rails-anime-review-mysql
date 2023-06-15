@@ -1,0 +1,8 @@
+<div class="change-ranking" id="change-ranking">
+    <%= link_to "総合",  ranking_total_user_work_rates_path(current_user,ranking: "total"), data: { turbo_method: :post }, class: "ranking-button #{ranking === "total" ? "selected" : "" }" %>
+    <%= link_to "感動", ranking_impressed_user_work_rates_path(current_user, ranking: "impressed"), data: { turbo_method: :post }, class: "ranking-button #{ranking === "impressed" ? "selected" : "" }"%>
+    <%= link_to "恋愛", ranking_love_user_work_rates_path(current_user, ranking: "love"), data: { turbo_method: :post }, class: "ranking-button #{ranking === "love" ? "selected" : "" }"%>
+    <%= link_to "笑い", ranking_comedy_user_work_rates_path(current_user, ranking: "comedy"), data: { turbo_method: :post }, class: "ranking-button #{ranking === "comedy" ? "selected" : "" }"%>
+    <%= link_to "興奮", ranking_excitement_user_work_rates_path(current_user, ranking: "excitement"), data: { turbo_method: :post }, class: "ranking-button #{ranking === "excitement" ? "selected" : "" }"%>
+    <%= link_to "ストーリー", ranking_deep_user_work_rates_path(current_user, ranking: "deep"), data: { turbo_method: :post }, class: "ranking-button #{ranking === "deep" ? "selected" : "" }"%>
+</div>

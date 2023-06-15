@@ -1,20 +1,8 @@
 <div class="work-rate-index">
-  <h1 class="ranking-title">総合ランキング</h1>
-  <div class="cheange-ranking">
-    <%= link_to "総合", "#", class: "ranking-button #{@ranking === "total" ? "selected" : "" }"%>
-    <%= link_to "感動", "#", class: "ranking-button #{@ranking === "impressed" ? "selected" : "" }"%>
-    <%= link_to "恋愛", "#", class: "ranking-button #{@ranking === "love" ? "selected" : "" }"%>
-    <%= link_to "笑い", "#", class: "ranking-button #{@ranking === "comedy" ? "selected" : "" }"%>
-    <%= link_to "興奮", "#", class: "ranking-button #{@ranking === "excitement" ? "selected" : "" }"%>
-    <%= link_to "奥深さ", "#", class: "ranking-button #{@ranking === "deep" ? "selected" : "" }"%>
-  </div>
+  <h1 class="ranking-title" id="ranking-title"><%= @ranking_title %></h1>
+  <%= render partial: "shared/change_ranking", locals: {ranking: @ranking} %>
   <div class="works">
-    <%= turbo_frame_tag "works-#{@works.current_page}" do %>
-      <% @works.each_with_index do |work,index| %>
-        <%= render partial: "shared/ranking_work", locals: { work: work, index:  index + 1 + @work_count }%>
-      <% end %>
-      <%= turbo_frame_tag "works-#{@works.next_page}", loading: :lazy, src: path_to_next_page(@works) %>
-    <% end %>
+    <%= render partial: "shared/ranking", locals: { works: @works, work_count: @work_count, next_page: @next_page}%>
   </div>
 </div>
 <% content_for :css do %>

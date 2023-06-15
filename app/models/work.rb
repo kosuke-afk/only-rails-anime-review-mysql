@@ -17,27 +17,27 @@ class Work < ApplicationRecord
     when "impressed"
       return Work.joins(:work_rates).
           select('works.annict_id, works.title, works.image, work_rates.total, work_rates.impressed, work_rates.love, work_rates.comedy, work_rates.excitement, work_rates.deep').
-          where('(work_rates.user_id = ?) AND work_rates.impressed != 0 OR work_rates.impressed IS NOT NULL', user_id).
+          where('(work_rates.user_id = ?) AND (work_rates.impressed != 0 AND work_rates.impressed IS NOT NULL)', user_id).
           order('work_rates.impressed DESC')
     when "love"
       return Work.joins(:work_rates).
           select('works.annict_id, works.title, works.image, work_rates.total, work_rates.impressed, work_rates.love, work_rates.comedy, work_rates.excitement, work_rates.deep').
-          where('(work_rates.user_id = ?) AND work_rates.love != 0 OR work_rates.love IS NOT NULL', user_id).
+          where('(work_rates.user_id = ?) AND (work_rates.love != 0 AND work_rates.love IS NOT NULL)', user_id).
           order('work_rates.love DESC')
     when "comedy"
       return Work.joins(:work_rates).
           select('works.annict_id, works.title, works.image, work_rates.total, work_rates.impressed, work_rates.love, work_rates.comedy, work_rates.excitement, work_rates.deep').
-          where('(work_rates.user_id = ?) AND work_rates.comedy != 0 OR work_rates.comedy IS NOT NULL', user_id).
+          where('(work_rates.user_id = ?) AND (work_rates.comedy != 0 AND work_rates.comedy IS NOT NULL)', user_id).
           order('work_rates.comedy DESC')
     when "excitement"
       return Work.joins(:work_rates).
           select('works.annict_id, works.title, works.image, work_rates.total, work_rates.impressed, work_rates.love, work_rates.comedy, work_rates.excitement, work_rates.deep').
-          where('(work_rates.user_id = ?) AND work_rates.excitement != 0 OR work_rates.excitement IS NOT NULL', user_id).
+          where('(work_rates.user_id = ?) AND (work_rates.excitement != 0 AND work_rates.excitement IS NOT NULL)', user_id).
           order('work_rates.excitement DESC')
     when "deep"
       return Work.joins(:work_rates).
           select('works.annict_id, works.title, works.image, work_rates.total, work_rates.impressed, work_rates.love, work_rates.comedy, work_rates.excitement, work_rates.deep').
-          where('(work_rates.user_id = ?) AND work_rates.deep != 0 OR work_rates.deep IS NOT NULL', user_id).
+          where('(work_rates.user_id = ?) AND (work_rates.deep != 0 AND work_rates.deep IS NOT NULL)', user_id).
           order('work_rates.deep DESC')
     end
   end

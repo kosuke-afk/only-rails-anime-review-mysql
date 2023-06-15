@@ -11,7 +11,8 @@ Rails.application.config.dartsass.builds = {
   "application.scss"  => "application.css",
   "home"       => "home",
   "works"  => "works",
-  "users" => "users"
+  "users" => "users",
+  "workrates" => "workrates"
 }
 # Add additional assets to the asset load path.
 # Rails.application.config.assets.paths << Emoji.images_path

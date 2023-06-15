@@ -1,0 +1,6 @@
+<%= turbo_frame_tag "works-#{works.current_page}" do %>
+    <% works.each_with_index do |work,index| %>
+      <%= render partial: "shared/ranking_work", locals: { work: work, index:  index + 1 + work_count }%>
+    <% end %>
+    <%= turbo_frame_tag "works-#{works.next_page}", loading: :lazy, src: "/users/1/work_rates?page=#{next_page}&ranking=total" %>
+<% end %>
