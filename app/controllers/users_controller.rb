@@ -12,10 +12,11 @@ class UsersController < ApplicationController
   end
   
   def edit
+    @user = current_user
   end
 
   def create
-    @user = User.new(params_user)
+    @user = User.new(params_create_user)
     if @user.save
       log_in @user
       flash[:success] = "新規作成に成功しました。"
@@ -28,11 +29,26 @@ class UsersController < ApplicationController
     end
   end
 
+  def update
+    @params = params_update_user 
+    @user = User.find_by(name: @params[:name], email: @params[:email])
+    if (@user.present? && @user.authenticate(@params[:current_password])) && (@user.update(password: @params[:new_password],password_confirmation: @params[:new_pass_confirmation]))
+      flash[:success] = "パスワードを更新しました"
+      redirect_to edit_user_path, status: :see_other
+    else
+      flash[:danger] = @user.errors.full_messages
+      render :edit, :unprocessable_entity
+    end
+  end
 
   private
 
-    def params_user
+    def params_create_user
       params.require(:user).permit(:name,:email,:password,:password_confirmation)
+    end
+
+    def params_update_user
+      params.require(:user).permit(:name, :email, :current_password, :new_password, :new_pass_confirmation)
     end
   
 end

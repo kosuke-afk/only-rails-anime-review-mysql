@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   get 'login_modal', to: "home#login_modal"
   post 'session/login'
   delete 'session/logout'
-  resources :users, only: [:show,:edit,:create] do
+  resources :users, only: [:show,:edit,:create,:update] do
     resources :work_rates, only: [:index, :edit] do
       collection do
         post "ranking/total", to: "work_rates#total"
