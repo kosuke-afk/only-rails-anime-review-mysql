@@ -1,4 +1,5 @@
 @use "../global/mq" as *;
+@use "../global/color" as *;
 
 .top-content {
   width: 100%;
@@ -61,17 +62,17 @@
   z-index: 2;
   & #modal-content {
     pointer-events: auto;
-    padding-left: 5%;
-    padding-right: 5%;
-    border-radius: 3rem;
     width: 100%;
-    min-height: 15rem;
-    background-color: white;
+    background-color: black;
     max-width: 420px;
+    border-radius: 3rem;
   }
   & .modal-header {
     display: flex;
     justify-content: space-between;
+    padding-left: 5%;
+    color: $gold;
+    border-radius: 3rem;
     & h1 {
       font-size: 1.5rem;
       margin-top: 2.5rem;
@@ -79,13 +80,14 @@
   }
   & #modal-main {
     margin-top: 2.4rem;
-    min-height: 16rem;
+    background-color: red;
+    border-radius: 1rem 1rem 3rem 3rem;
   }
   & .error-area {
+    width: 90%;
     min-height: 1rem;
     list-style: none;
-    margin-left: 3rem;
-    margin-top: 2rem;
+    margin: 10px auto 0 auto;
     color: red;
     display: flex;
     flex-flow: column;
@@ -129,6 +131,8 @@
   }
   & .form-label {
     font-size: 1rem;
+    font-weight: bold;
+    color: white;
   }
   &:nth-child(6) {
     flex-flow: row;
@@ -157,16 +161,20 @@
 }
 
 .login-field {
-  margin-top: 2rem;
+  margin: 0 auto 0 auto;
+  padding-top: 50px;
   display: flex;
   flex-flow: column;
+  width: 90%;
   gap: 1rem 0;
 }
 .create-field {
-  margin-top: 1rem;
+  margin: 0 auto 0 auto;
+  padding-top: 50px;
   display: flex;
   flex-flow: column;
   gap: 1rem 0;
+  width: 90%;
   min-height: 27rem;
   & .form-items {
     width: 18rem;
