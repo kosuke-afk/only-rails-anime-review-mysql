@@ -178,19 +178,19 @@
             & .episode-rate-item {
               width: 100%;
               position: relative;
+              display: flex;
+              align-items: center;
               & .score {
                 position: absolute;
                 top: 0;
                 left: 0;
+                flex-grow: 1;
               }
               & .episode-range {
-                width: 72%;
+                flex-grow: 8;
                 appearance: none;
                 height: 6px;
                 border-radius: 8px;
-                @include mq(lg) {
-                  width: 84%;
-                }
                 &::-webkit-slider-thumb {
                   -webkit-appearance: none;
                   background: #f00;

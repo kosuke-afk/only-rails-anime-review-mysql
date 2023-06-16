@@ -1,7 +1,7 @@
-<div class="user-show">
+<div class="user-show" data-controller="users-show">
   <div class="total-works">
     <h1 class="total-title">総合ランキング</h1>
-    <div class="swiper total-swiper">
+    <div class="swiper total-swiper" data-users-show-target="swiper">
       <div class="swiper-wrapper">
         <% @total_works.each_with_index do |work,index| %>
           <%= render partial: "shared/work_slide", locals: {work: work, index: "#{index + 1}", main: true}  %>
@@ -14,7 +14,7 @@
   </div>
   <div class="impressed-works">
     <h1 class="impressed-title">感動したい時に見たいアニメ</h1>
-    <div class="swiper impressed-swiper">
+    <div class="swiper impressed-swiper" data-users-show-target="swiper">
       <div class="swiper-wrapper">
         <%@impressed_works.each_with_index do |work,index| %>
           <%= render partial: "shared/work_slide", locals: {work: work, index: index + 1, main: false}%>
@@ -27,7 +27,7 @@
   </div>
   <div class="love-works">
     <h1 class="love-title">ドキドキしたい時に見たいアニメ</h1>
-    <div class="swiper love-swiper">
+    <div class="swiper love-swiper" data-users-show-target="swiper">
       <div class="swiper-wrapper">
         <%@love_works.each_with_index do |work,index| %>
           <%= render partial: "shared/work_slide", locals: {work: work, index: index + 1, main: false}%>
@@ -40,7 +40,7 @@
   </div>
   <div class="comedy-works">
     <h1 class="comedy-title">笑いたい時に見たいアニメ</h1>
-    <div class="swiper comedy-swiper">
+    <div class="swiper comedy-swiper" data-users-show-target="swiper">
       <div class="swiper-wrapper">
         <%@comedy_works.each_with_index do |work,index| %>
           <%= render partial: "shared/work_slide", locals: {work: work, index: index + 1, main: false}%>
@@ -53,7 +53,7 @@
   </div>
   <div class="excitement-works">
     <h1 class="excitement-title">ワクワクしたい時に見たいアニメ</h1>
-    <div class="swiper excitement-swiper">
+    <div class="swiper excitement-swiper" data-users-show-target="swiper">
       <div class="swiper-wrapper">
         <%@excitement_works.each_with_index do |work,index| %>
           <%= render partial: "shared/work_slide", locals: {work: work, index: index + 1, main: false}%>
@@ -66,7 +66,7 @@
   </div>
   <div class="deep-works">
     <h1 class="deep-title">暇な時こそ見たいアニメ</h1>
-    <div class="swiper deep-swiper">
+    <div class="swiper deep-swiper" data-users-show-target="swiper">
       <div class="swiper-wrapper">
         <%@deep_works.each_with_index do |work,index| %>
           <%= render partial: "shared/work_slide", locals: {work: work, index: index + 1, main: false}%>
@@ -81,7 +81,4 @@
 <% content_for :css do %>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
   <%= stylesheet_link_tag "users/show" %>
-<% end %>
-<% content_for :js do %>
-  <%= javascript_import_module_tag "users/show" %>
 <% end %>
