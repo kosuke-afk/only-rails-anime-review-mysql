@@ -77,11 +77,14 @@ header {
   position: absolute;
   height: 3.9rem;
   left: 50%;
-  top: 6%;
+  top: 1%;
   width: 15rem;
   z-index: 1000;
   transform: translateX(-50%);
   pointer-events: none;
+  @include mq(md) {
+    top: 2%;
+  }
   &.fade-out {
     @include animation(
       $name: fadeOut,
