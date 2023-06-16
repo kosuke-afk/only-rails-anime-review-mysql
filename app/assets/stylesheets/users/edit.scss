@@ -1,0 +1,79 @@
+@use "../global//color" as *;
+@use "../global/mq" as *;
+.users-edit-content {
+  padding-top: 58px;
+  padding-bottom: 100px;
+  & .title {
+    background-color: black;
+    color: $gold;
+    height: 5rem;
+    font-size: 1.7rem;
+    display: flex;
+    align-items: center;
+  }
+  & .form-aria {
+    padding-top: 50px;
+    margin-top: 50px;
+    background-color: black;
+    padding-bottom: 100px;
+    border-radius: 2px;
+    width: 100%;
+    padding-left: 4%;
+    @include mq(lg) {
+      padding-top: 180px;
+      padding-left: 7%;
+    }
+  }
+  & .edit-form {
+    color: $gold;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    width: 90%;
+    & .form-labels {
+      margin-top: 10px;
+      display: flex;
+      flex-direction: column;
+      width: 50%;
+      gap: 52px;
+      @include mq(lg) {
+        font-size: 1.7rem;
+      }
+    }
+    & .form-inputs {
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+      width: 50%;
+      @include mq(lg) {
+        padding-left: 10%;
+      }
+      & .edit-input {
+        border: solid 1px $gold;
+        height: 2.3rem;
+        vertical-align: baseline;
+        padding-left: 3px;
+        @include mq(md) {
+          max-width: 335px;
+        }
+        @include mq(lg) {
+          height: 3rem;
+          max-width: 365px;
+        }
+      }
+    }
+    & .edit-button {
+      margin-top: 50px;
+      margin-right: 10px;
+      flex-grow: 0;
+      border: 1px solid $gold;
+      padding: 15px 30px;
+      font-size: 0.9rem;
+      border-radius: 3rem;
+      @include mq(lg) {
+        margin-top: 100px;
+        padding: 20px 50px;
+      }
+    }
+  }
+}
