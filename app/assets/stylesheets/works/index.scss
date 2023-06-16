@@ -3,6 +3,7 @@
 
 .index-content {
   display: block;
+  padding-top: 50px;
   & .works-area {
     width: 100%;
     padding: 0 5%;
@@ -83,9 +84,13 @@
   }
   & .form-area {
     background-color: transparent;
-    height: 10rem;
+    height: 9rem;
+    margin-bottom: 10px;
     @include mq(lg) {
-      height: 13rem;
+      margin-bottom: 40px;
+    }
+    @include mq(xl) {
+      margin-bottom: 60px;
     }
     & > form {
       width: 100%;

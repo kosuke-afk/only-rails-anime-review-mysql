@@ -1,6 +1,6 @@
 <%= turbo_frame_tag "works-page-#{@works.current_page}", class: "works" do %>
   <% @works.each do |work| %>
-    <%= render partial: "shared/work", locals: {work: work,casts: work.casts.limit(5)} %>
+    <%= render partial: "shared/index_work", locals: {work: work,casts: work.casts.limit(5)} %>
   <% end %>
     <%= turbo_frame_tag "works-page-#{@works.next_page}", class: "works", loading: :lazy, src: path_to_next_page(@works) %>
   <% end %>
