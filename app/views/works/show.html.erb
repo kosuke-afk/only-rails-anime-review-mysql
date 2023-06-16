@@ -8,11 +8,13 @@
       </div>
       <%= render partial: "shared/work_rates", locals: {work_rate: @work_rate} %>
     </div>
-    <div class="episodes">
-      <% @episodes.each do |episode| %>
-        <%= render partial: "shared/episode", locals: { work: @work, episode: episode, open: false } %>
-      <% end %>
-    </div>
+    <% if @episodes.present? %>
+      <div class="episodes">
+        <% @episodes.each do |episode| %>
+          <%= render partial: "shared/episode", locals: { work: @work, episode: episode, open: false } %>
+        <% end %>
+      </div>
+    <% end %>
 </div>
 <% content_for :css do %>
   <%= stylesheet_link_tag "works/show" %>
