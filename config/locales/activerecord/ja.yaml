@@ -1,0 +1,45 @@
+ja:
+  activerecord:
+    models:
+      user: "ユーザー"
+      work: "作品"
+      work_rate: "作品評価"
+      cast: "キャスト"
+      episode: "エピソード"
+      episode_rate: "エピソード評価"
+      release: "リリース"
+    attributes:
+      user:
+        name: "名前"
+        email: "メールアドレス"
+        password: "パスワード"
+        password_confirmation: "パスワード確認"
+      work:
+        annict_id: "作品番号"
+        title: "タイトル"
+        episode_count: "エピソード数"
+        media: "放送媒体"
+        title_kana: "タイトル（仮名文字）"
+      work_rate:
+        impressed: "感動"
+        comedy: "笑い"
+        love: "恋愛"
+        excitement: "興奮"
+        deep: "ストーリー"
+      cast:
+        work_id: "作品番号"
+        character: "キャラクター"
+        cast: "キャスト"
+      episode:
+        work_id: "作品番号"
+        title: "タイトル"
+        episode_number: "話数"
+      episode_rate:
+        impressed: "感動"
+        comedy: "笑い"
+        love: "恋愛"
+        excitement: "興奮"
+        deep: "ストーリー"
+      release:
+        year: "年"
+        season: "シーズン"
