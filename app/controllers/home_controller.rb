@@ -10,5 +10,6 @@ class HomeController < ApplicationController
   end
 
   def login_modal
+    @user = User.new
   end
 end

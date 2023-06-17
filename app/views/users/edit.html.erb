@@ -1,23 +1,22 @@
 <div class="users-edit-content">
   <h1 class="title">ユーザー情報</h1>
   <div class="form-aria">
-    <% if flash[:danger].present? %>
-      <%= render partial: "shared/error_messages" %>
-    <% end %>
+    <ul id="error-area">
+    </ul>
     <%= form_with model: @user, url: user_path(@user),  data: {turbo_method: :patch}, class: "edit-form" do |form| %>
       <div class="form-labels">
         <%= form.label :name, class: "edit-label" %>
         <%= form.label :email, class: "edit-label"%>
-        <%= form.label :current_password, class: "edit-label" %>
-        <%= form.label :new_password, class: "edit-label" %>
-        <%= form.label :new_pass_confirmation, class: "edit-label" %>
+        <%= form.label :current_password, t('.current_password'), class: "edit-label" %>
+        <%= form.label :new_password, t('.new_password'), class: "edit-label" %>
+        <%= form.label :new_pass_confirmation, t('.new_pass_confirmation'), class: "edit-label" %>
       </div>
       <div class="form-inputs">
         <%= form.text_field :name, class: "edit-input" %>
-        <%= form.email_field :email, class: "edit-input"%>
+        <%= form.email_field :email, disabled: true,class: "edit-input"%>
         <%= form.password_field :current_password, class: "edit-input" %>
         <%= form.password_field :new_password, class: "edit-input" %>
-        <%= form.password_field :new_pass_confirmation, class: "edit-input" %>
+        <%= form.password_field :new_pass_confirmation,  class: "edit-input" %>
       </div>
       <%= form.submit "変更する", class: "edit-button" %>
     <% end %>

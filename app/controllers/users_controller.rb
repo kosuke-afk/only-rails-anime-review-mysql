@@ -24,7 +24,7 @@ class UsersController < ApplicationController
     else
       flash.now[:danger] = @user.errors.full_messages
       render turbo_stream: [
-        turbo_stream.replace("error-area",partial: "home/partial/error_messages")
+        turbo_stream.replace("error-area",partial: "shared/error_messages")
       ]
     end
   end
@@ -36,8 +36,10 @@ class UsersController < ApplicationController
       flash[:success] = "パスワードを更新しました"
       redirect_to edit_user_path, status: :see_other
     else
-      flash[:danger] = @user.errors.full_messages
-      render :edit, :unprocessable_entity
+      flash.now[:danger] = ["正しいパスワードを入力してください"]
+      render turbo_stream: [
+        turbo_stream.replace("error-area", partial: "shared/error_messages")
+      ]
     end
   end
 

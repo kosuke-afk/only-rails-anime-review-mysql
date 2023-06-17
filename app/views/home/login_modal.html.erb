@@ -3,17 +3,19 @@
     <div class="modal-header">
         <h1>ログイン</h1>
     </div>  
-    <ul id="error-area">
-    </ul>
     <div id="modal-main">
-      <%= form_with url: session_login_path, scope: :user, class: "login-field" do |form| %>
-          <div class="form-items">
-              <%= form.label :email, "メールアドレス", class: "form-label" %>
-              <%= form.email_field :email, class: "input-item" %>
-          </div>
-          <div class="form-items">
-              <%= form.label :password, "パスワード", class: "form-label" %>
-              <%= form.password_field :password, class: "input-item" %>
+      <%= form_with model: @user, url: session_login_path, class: "login-field" do |form| %>
+          <div class="text-fields">
+            <ul id="error-area">
+            </ul>
+            <div class="form-items">
+                <%= form.label :email, class: "form-label" %>
+                <%= form.email_field :email, class: "input-item" %>
+            </div>
+            <div class="form-items">
+                <%= form.label :password, class: "form-label" %>
+                <%= form.password_field :password, class: "input-item" %>
+            </div>
           </div>
           <%= form.submit "ログイン", class: "form-button" %>
       <% end %>
