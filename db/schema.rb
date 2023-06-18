@@ -11,7 +11,10 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema[7.0].define(version: 2023_06_06_064207) do
-  create_table "casts", charset: "utf8mb4", force: :cascade do |t|
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
+  create_table "casts", force: :cascade do |t|
     t.bigint "work_id", null: false
     t.string "character"
     t.string "cast"
@@ -20,7 +23,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_06_064207) do
     t.index ["work_id"], name: "index_casts_on_work_id"
   end
 
-  create_table "episode_rates", charset: "utf8mb4", force: :cascade do |t|
+  create_table "episode_rates", force: :cascade do |t|
     t.integer "impressed"
     t.integer "comedy"
     t.integer "love"
@@ -37,7 +40,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_06_064207) do
     t.index ["work_id"], name: "index_episode_rates_on_work_id"
   end
 
-  create_table "episodes", charset: "utf8mb4", force: :cascade do |t|
+  create_table "episodes", force: :cascade do |t|
     t.text "title"
     t.string "episode_number"
     t.bigint "work_id", null: false
@@ -47,14 +50,14 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_06_064207) do
     t.index ["work_id"], name: "index_episodes_on_work_id"
   end
 
-  create_table "releases", charset: "utf8mb4", force: :cascade do |t|
+  create_table "releases", force: :cascade do |t|
     t.integer "year"
     t.string "season"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "users", charset: "utf8mb4", force: :cascade do |t|
+  create_table "users", force: :cascade do |t|
     t.string "name"
     t.string "email"
     t.string "password_digest"
@@ -63,7 +66,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_06_064207) do
     t.index ["email"], name: "index_users_on_email"
   end
 
-  create_table "work_rates", charset: "utf8mb4", force: :cascade do |t|
+  create_table "work_rates", force: :cascade do |t|
     t.float "impressed"
     t.float "comedy"
     t.float "love"
@@ -79,7 +82,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_06_064207) do
     t.index ["work_id"], name: "index_work_rates_on_work_id"
   end
 
-  create_table "works", primary_key: "annict_id", charset: "utf8mb4", force: :cascade do |t|
+  create_table "works", primary_key: "annict_id", force: :cascade do |t|
     t.string "title"
     t.integer "episode_count"
     t.string "media"
