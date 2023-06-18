@@ -7,7 +7,6 @@ class EpisodeRate < ApplicationRecord
       user = User.all
       user.each do |user|
         works = Work.where("episode_count >= 2 AND media != '映画'").sample(title_counts)
-        binding.break
         works.each do |work|
           episodes = work.episodes
           if episodes.count != 0
