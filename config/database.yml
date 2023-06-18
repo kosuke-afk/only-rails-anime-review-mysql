@@ -21,9 +21,19 @@ development:
   <<: *default
   database: myapp_development
 
+# default: &default
+#   adapter: postgresql
+#   encoding: unicode
+#   host: db
+#   username: <%= ENV["POSTGRES_USER"] %>
+#   password: <%= ENV["POSTGRES_PASSWORD"] %>
+
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
+# development:
+#   <<: *default
+#   database: myapp_development
 test:
   <<: *default
   database: myapp_test
@@ -52,7 +62,7 @@ production:
   adapter: postgresql
   encoding: unicode
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  database: anime_review_db_ze3s
-  username: anime_review_db_ze3s_user
-  password: QNJe3vxDIB4fZfrHV6ur17OeSn7Ig3a8
-  # host: db
+  database: anime_review_db_wf3s
+  username: anime_review_db_wf3s_user
+  password: gEKDgp04IAVrDNwq1bnNhjefepYVHq8F
+  host: dpg-ci7jp2h8g3nfuc9t6iv0-a

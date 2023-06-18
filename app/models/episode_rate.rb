@@ -6,7 +6,7 @@ class EpisodeRate < ApplicationRecord
   def self.create_sample_rates(title_counts:)
       user = User.all
       user.each do |user|
-        works = Work.where(' episode_count >= 2 AND media != 映画 ').sample(title_counts)
+        works = Work.where("episode_count >= 2 AND media != '映画'").sample(title_counts)
         binding.break
         works.each do |work|
           episodes = work.episodes
@@ -18,7 +18,7 @@ class EpisodeRate < ApplicationRecord
         end
         registered_work_count_with_ep_rate = EpisodeRate.where(user_id: user.id).group_by { |rate| rate[:work_id]}.length
         while (registered_work_count_with_ep_rate < title_counts) do
-          work = Work.where('episode_count >= 2 AND media != "映画"').sample
+          work = Work.where("episode_count >= 2 AND media != '映画'").sample
           episodes = work.episodes
           if episodes.count != 0
             privious_rate_count = EpisodeRate.count
