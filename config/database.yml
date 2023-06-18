@@ -52,7 +52,7 @@ production:
   adapter: postgresql
   encoding: unicode
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  database: myapp_production
-  username: root
-  password: password
-  host: db
+  database: anime_review_db_ze3s
+  username: anime_review_db_ze3s_user
+  password: QNJe3vxDIB4fZfrHV6ur17OeSn7Ig3a8
+  # host: db
