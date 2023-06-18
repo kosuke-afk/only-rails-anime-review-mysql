@@ -1,6 +1,7 @@
 FROM ruby:3.1
 ENV ANNICT_ACCESS_TOKEN="sNMBn8f3HTXtyMVLcHpSrr_ETMULmooCm17p9KxNT8E"
 ENV RAILS_ENV="production"
+ENV SECRET_KEY_BASE="65197839303"
 RUN mkdir /myapp
 WORKDIR /myapp
 COPY Gemfile /myapp/Gemfile
