@@ -63,7 +63,7 @@ production:
   adapter: postgresql
   encoding: unicode
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  # database: anime_review_db_kz0w
-  # username: anime_review_db_kz0w_user
-  # password: rFkiaeDztT76xE3L1NVTHFkZJXQIATX8
-  # host: dpg-ci7ql56nqql0lddemk2g-a
+  database: anime_review_db_w0oc
+  username: anime_review_db_w0oc_user
+  password: qcHsIO3Ds9tC6q3mnR6cAdpYG2cRIoyQ
+  host: dpg-ci7rsamnqql0lddk2hig-a
