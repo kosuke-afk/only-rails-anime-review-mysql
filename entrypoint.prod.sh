@@ -5,7 +5,7 @@ set -e
 rm -f /myapp/tmp/pids/server.pid
 # bundle exec rails db:drop DISABLE_DATABASE_ENVIRONMENT_CHECK=1
 bundle exec rails db:migrate
-
+bundle exec rails assets:precompile
 # bundle exec rails db:seed
 
 # Then exec the container's main process (what's set as CMD in the Dockerfile).
