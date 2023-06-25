@@ -42,6 +42,9 @@ class Work < ApplicationRecord
     end
   end
 
+  def self.ransackable_attributes(auth_object = nil)
+    ["title"]
+  end
 
   def self.create_or_update(work:,release_id:)
      Work.find_or_initialize_by(title: work["title"]).update(

@@ -1,0 +1,5 @@
+<%= turbo_frame_tag "works-page-1", class: "works" do %>
+  <% @works.each do |work| %>
+    <%= render partial: "shared/index_work", locals: {work: work,casts: work.casts.limit(5)} %>
+  <% end %>
+<% end %>

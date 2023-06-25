@@ -22,7 +22,11 @@ Rails.application.routes.draw do
     end
   end
   resources :works, only: [:index,:show] do
-    get 'search', on: :collection
+    collection do
+      get 'search_title'
+      get 'search_release'
+      get 'change_search'
+    end
   end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

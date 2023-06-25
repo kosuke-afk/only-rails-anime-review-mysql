@@ -1,0 +1,11 @@
+<%= turbo_frame_tag "searches" do %>
+    <div class="change-searches">
+      <%= link_to "リリース", change_search_works_path(search: "release"), class: "change-button selected" %>
+      <%= link_to "タイトル", change_search_works_path(search: "title"), class: "change-button" %>
+    </div>
+    <%= search_form_for @q, url: search_release_works_path, class: "search-form", data: { turbo_frame: "works-page-1"} do |form| %>
+      <%= form.select :year_eq, @years.map { |data| [data.year,data.year]}, class: "search-select" %>
+      <%= form.select :season_eq, @seasons.map { |data| [data.season,data.season]}, class: "search-select" %>
+      <%= form.submit "検索", class: "submit-button"%>
+    <% end %>
+<% end %>
