@@ -34,7 +34,7 @@ class EpisodeRatesController < ApplicationController
     )
     episode_rates = EpisodeRate.where(user_id: user_id,work_id: work_id).where.not(impressed: 0,comedy: 0, love: 0, excitement: 0, deep: 0)
     @work_rate = WorkRate.find_by(user_id: user_id, work_id: work_id)
-    total_rate = total_rate(@work_rate)
+    total_rate = total_rate(rate: nil, params: epParams)
     if episode_rates.count <= 1
       @work_rate.update(
         impressed: epParams[:impressed],
@@ -45,7 +45,7 @@ class EpisodeRatesController < ApplicationController
         total: total_rate
       )
     else
-      average = WorkRate.rate_averages(episode_rates)
+      average = WorkRate.averages_and_total(episode_rates)
       @work_rate.update(
         impressed: average[:impressed],
         comedy: average[:comedy],

@@ -77,13 +77,13 @@ header {
   position: absolute;
   height: 3.9rem;
   left: 50%;
-  top: 6%;
+  top: 96px;
   width: 15rem;
   z-index: 1000;
   transform: translateX(-50%);
   pointer-events: none;
   @include mq(md) {
-    top: 8%;
+    top: 140px;
   }
   &.fade-out {
     @include animation(

@@ -4,7 +4,7 @@ class SessionController < ApplicationController
     if @user.present? && @user.authenticate(params_login[:password])
       log_in @user
       session[:modal_close] = false
-      flash.now[:success] = "ログインしました。"
+      flash[:success] = "ログインしました。"
       redirect_to works_path, status: :see_other
     else
       flash.now[:danger] = ["メールアドレスまたはパスワードが違います"]
