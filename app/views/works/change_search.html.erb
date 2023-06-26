@@ -13,12 +13,12 @@
 <% elsif params[:search] === "title" %>
   <%= turbo_frame_tag "searches" do %>
       <div class="change-searches">
-        <%= link_to "リリース", change_search_works_path(search: "release"), class: "change-button selected" %>
-        <%= link_to "タイトル", change_search_works_path(search: "title"), class: "change-button" %>
+        <%= link_to "リリース", change_search_works_path(search: "release"), class: "change-button" %>
+        <%= link_to "タイトル", change_search_works_path(search: "title"), class: "change-button selected" %>
       </div>
       <%= search_form_for @q, url: search_title_works_path, class: "search-form", data: { turbo_frame: "works-page-1"} do |form| %>
-        <%= form.text_field :title_cont, class: "search-text" %>
-        <%= form.submit "検索", class: "submit-button"%>
+        <%= form.text_field :title_start, class: "search-text" %>
+        <%= form.submit "検索", class: "submit-button" %>
       <% end %>
   <% end %>
 <% end %>

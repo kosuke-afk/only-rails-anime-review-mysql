@@ -28,7 +28,6 @@ class WorksController < ApplicationController
 
   def search_title
     @works = @q.result
-    binding.break
   end
 
   def search_release
